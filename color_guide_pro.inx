@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Create / Update Guide · دليل الألوان</name>
+  <id>com.binsalmarts.color-guide-pro</id>
+  <param name="tab" type="notebook">
+    <page name="sections" gui-text="Pages · الصفحات">
+      <label appearance="header">Color Guide Pro · 1.0</label>
+      <label>Select vector artwork or a group. Enable only the sections you need.</label>
+      <param name="action" type="optiongroup" appearance="combo" gui-text="Action · العملية">
+        <option value="create">Create a new independent guide · دليل جديد</option>
+        <option value="update">Update selected / last guide with these settings · تحديث بالإعدادات الحالية</option>
+      </param>
+      <hbox>
+        <vbox>
+          <param name="page_cover" type="bool" gui-text="Cover · الغلاف">false</param>
+          <param name="page_palette" type="bool" gui-text="Color palette · لوحة الألوان">true</param>
+          <param name="page_tones" type="bool" gui-text="Tonal scales · درجات الألوان">false</param>
+        </vbox>
+        <vbox>
+          <param name="page_pairings" type="bool" gui-text="Text contrast · تباين النص">false</param>
+          <param name="page_combinations" type="bool" gui-text="Color combinations · تكوينات الألوان">false</param>
+          <param name="page_gradients" type="bool" gui-text="Gradient library · مكتبة التدرجات">false</param>
+        </vbox>
+      </hbox>
+      <param name="language" type="optiongroup" appearance="combo" gui-text="Guide language · لغة الدليل">
+        <option value="en">English</option><option value="ar">العربية</option>
+      </param>
+      <label>The output stays editable. Refresh Saved Guide re-reads the sources with the saved settings and regenerates its pages.</label>
+    </page>
+    <page name="source" gui-text="Colors · الألوان">
+      <param name="include_fill" type="bool" gui-text="Read fill colors · ألوان التعبئة">true</param>
+      <param name="include_stroke" type="bool" gui-text="Read stroke colors · ألوان الحدود">true</param>
+      <param name="include_gradients" type="bool" gui-text="Read gradient stops · ألوان التدرجات">true</param>
+      <param name="max_colors" type="int" min="1" max="32" gui-text="Maximum distinct colors · أقصى عدد ألوان">24</param>
+      <label>Reads groups, inherited CSS and local clones. Hidden objects are skipped. Raster images and patterns are not sampled.</label>
+      <separator/>
+      <label appearance="header">Names · أسماء الألوان</label>
+      <label>Automatic names use a documented offline database. Approximate names show ≈. Override names for your brand:</label>
+      <param name="custom_names" type="string" appearance="multiline" gui-text="#HEX=English name|الاسم العربي"/>
+      <label>Separate entries with semicolons or new lines. Example: #0E5E6F=Petrol|بترولي</label>
+    </page>
+    <page name="brand" gui-text="Brand · الهوية">
+      <param name="brand_name" type="string" gui-text="Brand / project name · اسم الهوية">Brand Color Guide</param>
+      <param name="brand_subtitle" type="string" gui-text="Subtitle · العنوان الفرعي">A considered color system.</param>
+      <param name="logo_id" type="string" gui-text="Vector logo ID for cover · معرّف شعار الغلاف"/>
+      <param name="font_family" type="string" gui-text="Font family · الخط">DejaVu Sans</param>
+      <param name="font_scale" type="float" min="0.75" max="1.15" precision="2" gui-text="Text scale · مقياس النص">1</param>
+      <label>Use a font installed on your system that supports the chosen language. Custom names and headings are preserved through saved refresh.</label>
+    </page>
+    <page name="layout" gui-text="Palette · اللوحة">
+      <param name="palette_layout" type="optiongroup" appearance="combo" gui-text="Palette template · قالب اللوحة">
+        <option value="editorial">Editorial rows · صفوف تفصيلية</option>
+        <option value="cards">Individual cards · بطاقات منفصلة</option>
+        <option value="compact">Compact list · قائمة مختصرة</option>
+      </param>
+      <param name="palette_tones" type="bool" gui-text="Show tones inside editorial rows · الدرجات داخل الصفوف">true</param>
+      <hbox>
+        <param name="tone_count" type="optiongroup" appearance="combo" gui-text="Number of tones · عدد الدرجات">
+          <option value="11">11</option><option value="9">9</option><option value="7">7</option><option value="5">5</option>
+        </param>
+        <param name="base_tone" type="int" min="0" max="11" gui-text="Original position (0 = auto) · موضع الأصلي">0</param>
+      </hbox>
+      <label>The original is marked ●. Tones run light to dark. Position counts from 1 at the light end.</label>
+      <separator/>
+    </page>
+    <page name="pairs" gui-text="Pairs · التكوينات">
+      <param name="combination_layout" type="optiongroup" appearance="combo" gui-text="Combination page · قالب التكوينات">
+        <option value="editorial">Brand guideline with description · صفحة إرشادات</option>
+        <option value="matrix">Labeled color matrix · مصفوفة مع أسماء الألوان</option>
+      </param>
+      <param name="combination_description" type="string" appearance="multiline" gui-text="Custom description (optional) · نص إرشادي اختياري"/>
+      <param name="symbol" type="optiongroup" appearance="combo" gui-text="Combination symbol · شكل التكوينات">
+        <option value="diamond">Diamond · معيّن</option><option value="circle">Circle · دائرة</option>
+        <option value="square">Rounded square · مربع</option><option value="custom">Custom vector / logo · شكل أو شعار مخصص</option>
+      </param>
+      <param name="combination_details" type="bool" gui-text="Show ratio and HEX below symbols · تفاصيل تحت الرموز">false</param>
+      <param name="symbol_id" type="string" gui-text="Custom vector object ID · معرّف الشكل المخصص"/>
+      <hbox>
+        <param name="pair_filter" type="optiongroup" appearance="combo" gui-text="Text pair filter · فلتر التباين">
+          <option value="all">All pairs · الكل</option><option value="normal">Normal text AA or better · النص العادي</option>
+          <option value="large">Large text AA or better · النص الكبير</option>
+        </param>
+        <param name="pair_sort" type="optiongroup" appearance="combo" gui-text="Order · الترتيب">
+          <option value="palette">Palette order · ترتيب اللوحة</option><option value="contrast">Highest contrast first · الأعلى تباينًا</option>
+        </param>
+      </hbox>
+      <param name="include_neutrals" type="bool" gui-text="Add black and white to text pairings · إضافة الأبيض والأسود للتباين">true</param>
+      <param name="max_pairs" type="int" min="1" max="240" gui-text="Maximum text pairs · أقصى عدد تركيبات نص">24</param>
+      <separator/>
+    </page>
+    <page name="appearance" gui-text="Page · الصفحة">
+      <param name="show_hex" type="bool" gui-text="HEX">true</param>
+      <param name="show_rgb" type="bool" gui-text="RGB">true</param>
+      <param name="show_cmyk" type="bool" gui-text="CMYK (approximate) · تقريبي">true</param>
+      <param name="show_hsl" type="bool" gui-text="HSL">false</param>
+      <param name="paper" type="color" appearance="colorbutton" gui-text="Paper / alpha background · الخلفية">4294967295</param>
+      <param name="page_preset" type="optiongroup" appearance="combo" gui-text="Page size · مقاس الصفحة">
+        <option value="widescreen">1600 × 900</option><option value="a4">A4 landscape · أفقي</option><option value="custom">Custom · مخصص</option>
+      </param>
+      <hbox>
+        <param name="page_width" type="float" min="800" max="8000" gui-text="Custom width (px)">1600</param>
+        <param name="page_height" type="float" min="500" max="8000" gui-text="Custom height (px)">900</param>
+      </hbox>
+      <param name="page_gap" type="float" min="0" max="1000" gui-text="Page gap (px) · المسافة بين الصفحات">70</param>
+      <param name="native_pages" type="bool" gui-text="Create native Inkscape pages · إنشاء صفحات إنكسكيب">true</param>
+    </page>
+    <page name="export" gui-text="Export · التصدير">
+      <label>Optional: choose a folder that already exists. A new subfolder is created; previous exports are kept.</label>
+      <param name="export_dir" type="path" mode="folder" gui-text="Export folder · مجلد التصدير"/>
+      <param name="export_name" type="string" gui-text="Folder / file name · اسم الملفات">Color-Guide</param>
+      <hbox>
+        <vbox>
+          <param name="export_svg" type="bool" gui-text="Editable SVG · فيكتور قابل للتحرير">false</param>
+          <param name="export_pdf" type="bool" gui-text="Multipage PDF · ملف PDF">false</param>
+          <param name="export_png" type="bool" gui-text="PNG per page · صورة لكل صفحة">false</param>
+        </vbox>
+        <vbox>
+          <param name="export_gpl" type="bool" gui-text="GPL swatch palette · لوحة ألوان">false</param>
+          <param name="export_json" type="bool" gui-text="JSON color data · بيانات الألوان">false</param>
+          <param name="export_csv" type="bool" gui-text="CSV color table · جدول الألوان">false</param>
+        </vbox>
+      </hbox>
+      <param name="png_width" type="int" min="400" max="8000" gui-text="PNG page width (px)">1600</param>
+      <label>Only enabled sections are exported. SVG is a snapshot; refresh the linked guide in your working document.</label>
+    </page>
+    <page name="about" gui-text="About · حول">
+      <label appearance="header">A separate extension · إضافة مستقلة</label>
+      <label>Color Guide Pro does not modify or replace Color Info Card.</label>
+      <label>WCAG 2.2 text contrast: AAA ≥ 7:1; AA ≥ 4.5:1; large text AA ≥ 3:1. Ratings use unrounded values.</label>
+      <label>Low-contrast decorative samples are not an accessibility certification. CMYK values are approximate, without a print ICC profile.</label>
+      <label>Names: curated xkcd color survey, CC0. ≈ means the closest documented name, not an exact standardized match.</label>
+      <label>Refresh regenerates the extension's pages and replaces manual edits inside them. Source artwork stays editable.</label>
+    </page>
+  </param>
+  <effect><object-type>all</object-type><effects-menu><submenu name="Binsalmarts Extensions &gt;"><submenu name="Color Guide Pro"/></submenu></effects-menu></effect>
+  <script><command location="inx" interpreter="python">color_guide_pro.py</command></script>
+</inkscape-extension>

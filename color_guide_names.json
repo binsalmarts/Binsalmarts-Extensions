@@ -1,0 +1,759 @@
+{
+  "source": "https://xkcd.com/color/rgb.txt",
+  "license": "CC0-1.0",
+  "source_sha256": "450cca88fa6fa9a1e79c969969e05e6900b41a94f0a3a5f134e3d0b79077f890",
+  "retrieved": "2026-11-01",
+  "note": "Curated conventional names from the survey; Arabic translations by the project. Approximate matches are labeled.",
+  "colors": [
+    {
+      "en": "Black",
+      "ar": "أسود",
+      "hex": "#000000"
+    },
+    {
+      "en": "White",
+      "ar": "أبيض",
+      "hex": "#FFFFFF"
+    },
+    {
+      "en": "Grey",
+      "ar": "رمادي",
+      "hex": "#929591"
+    },
+    {
+      "en": "Dark Grey",
+      "ar": "رمادي داكن",
+      "hex": "#363737"
+    },
+    {
+      "en": "Light Grey",
+      "ar": "رمادي فاتح",
+      "hex": "#D8DCD6"
+    },
+    {
+      "en": "Silver",
+      "ar": "فضي",
+      "hex": "#C5C9C7"
+    },
+    {
+      "en": "Charcoal",
+      "ar": "فحمي",
+      "hex": "#343837"
+    },
+    {
+      "en": "Charcoal Grey",
+      "ar": "رمادي فحمي",
+      "hex": "#3C4142"
+    },
+    {
+      "en": "Slate",
+      "ar": "أردوازي",
+      "hex": "#516572"
+    },
+    {
+      "en": "Slate Grey",
+      "ar": "رمادي أردوازي",
+      "hex": "#59656D"
+    },
+    {
+      "en": "Blue Grey",
+      "ar": "رمادي مزرق",
+      "hex": "#607C8E"
+    },
+    {
+      "en": "Cool Grey",
+      "ar": "رمادي بارد",
+      "hex": "#95A3A6"
+    },
+    {
+      "en": "Warm Grey",
+      "ar": "رمادي دافئ",
+      "hex": "#978A84"
+    },
+    {
+      "en": "Stone",
+      "ar": "حجري",
+      "hex": "#ADA587"
+    },
+    {
+      "en": "Cement",
+      "ar": "أسمنتي",
+      "hex": "#A5A391"
+    },
+    {
+      "en": "Red",
+      "ar": "أحمر",
+      "hex": "#E50000"
+    },
+    {
+      "en": "Dark Red",
+      "ar": "أحمر داكن",
+      "hex": "#840000"
+    },
+    {
+      "en": "Light Red",
+      "ar": "أحمر فاتح",
+      "hex": "#FF474C"
+    },
+    {
+      "en": "Crimson",
+      "ar": "قرمزي",
+      "hex": "#8C000F"
+    },
+    {
+      "en": "Scarlet",
+      "ar": "أحمر قانٍ",
+      "hex": "#BE0119"
+    },
+    {
+      "en": "Burgundy",
+      "ar": "عنابي",
+      "hex": "#610023"
+    },
+    {
+      "en": "Maroon",
+      "ar": "كستنائي محمر",
+      "hex": "#650021"
+    },
+    {
+      "en": "Wine",
+      "ar": "نبيذي",
+      "hex": "#80013F"
+    },
+    {
+      "en": "Brick Red",
+      "ar": "أحمر آجري",
+      "hex": "#8F1402"
+    },
+    {
+      "en": "Rust",
+      "ar": "صدئي",
+      "hex": "#A83C09"
+    },
+    {
+      "en": "Rust Red",
+      "ar": "أحمر صدئي",
+      "hex": "#AA2704"
+    },
+    {
+      "en": "Terracotta",
+      "ar": "طوبي",
+      "hex": "#CA6641"
+    },
+    {
+      "en": "Coral",
+      "ar": "مرجاني",
+      "hex": "#FC5A50"
+    },
+    {
+      "en": "Salmon",
+      "ar": "سلموني",
+      "hex": "#FF796C"
+    },
+    {
+      "en": "Rose",
+      "ar": "وردي جوري",
+      "hex": "#CF6275"
+    },
+    {
+      "en": "Dusty Rose",
+      "ar": "وردي معتّق",
+      "hex": "#C0737A"
+    },
+    {
+      "en": "Orange",
+      "ar": "برتقالي",
+      "hex": "#F97306"
+    },
+    {
+      "en": "Dark Orange",
+      "ar": "برتقالي داكن",
+      "hex": "#C65102"
+    },
+    {
+      "en": "Light Orange",
+      "ar": "برتقالي فاتح",
+      "hex": "#FDAA48"
+    },
+    {
+      "en": "Burnt Orange",
+      "ar": "برتقالي محروق",
+      "hex": "#C04E01"
+    },
+    {
+      "en": "Peach",
+      "ar": "خوخي",
+      "hex": "#FFB07C"
+    },
+    {
+      "en": "Apricot",
+      "ar": "مشمشي",
+      "hex": "#FFB16D"
+    },
+    {
+      "en": "Tangerine",
+      "ar": "يوسفي",
+      "hex": "#FF9408"
+    },
+    {
+      "en": "Amber",
+      "ar": "كهرماني",
+      "hex": "#FEB308"
+    },
+    {
+      "en": "Copper",
+      "ar": "نحاسي",
+      "hex": "#B66325"
+    },
+    {
+      "en": "Bronze",
+      "ar": "برونزي",
+      "hex": "#A87900"
+    },
+    {
+      "en": "Pumpkin",
+      "ar": "قرعي",
+      "hex": "#E17701"
+    },
+    {
+      "en": "Yellow",
+      "ar": "أصفر",
+      "hex": "#FFFF14"
+    },
+    {
+      "en": "Dark Yellow",
+      "ar": "أصفر داكن",
+      "hex": "#D5B60A"
+    },
+    {
+      "en": "Pale Yellow",
+      "ar": "أصفر شاحب",
+      "hex": "#FFFF84"
+    },
+    {
+      "en": "Gold",
+      "ar": "ذهبي",
+      "hex": "#DBB40C"
+    },
+    {
+      "en": "Goldenrod",
+      "ar": "أصفر ذهبي",
+      "hex": "#FAC205"
+    },
+    {
+      "en": "Mustard",
+      "ar": "خردلي",
+      "hex": "#CEB301"
+    },
+    {
+      "en": "Ochre",
+      "ar": "مغرة",
+      "hex": "#BF9005"
+    },
+    {
+      "en": "Lemon",
+      "ar": "ليموني",
+      "hex": "#FDFF52"
+    },
+    {
+      "en": "Lemon Yellow",
+      "ar": "أصفر ليموني",
+      "hex": "#FDFF38"
+    },
+    {
+      "en": "Cream",
+      "ar": "كريمي",
+      "hex": "#FFFFC2"
+    },
+    {
+      "en": "Ivory",
+      "ar": "عاجي",
+      "hex": "#FFFFCB"
+    },
+    {
+      "en": "Off White",
+      "ar": "أبيض مكسور",
+      "hex": "#FFFFE4"
+    },
+    {
+      "en": "Eggshell",
+      "ar": "قشر البيض",
+      "hex": "#FFFFD4"
+    },
+    {
+      "en": "Sand",
+      "ar": "رملي",
+      "hex": "#E2CA76"
+    },
+    {
+      "en": "Sandstone",
+      "ar": "حجر رملي",
+      "hex": "#C9AE74"
+    },
+    {
+      "en": "Beige",
+      "ar": "بيج",
+      "hex": "#E6DAA6"
+    },
+    {
+      "en": "Tan",
+      "ar": "أسمر فاتح",
+      "hex": "#D1B26F"
+    },
+    {
+      "en": "Taupe",
+      "ar": "رمادي بني",
+      "hex": "#B9A281"
+    },
+    {
+      "en": "Khaki",
+      "ar": "كاكي",
+      "hex": "#AAA662"
+    },
+    {
+      "en": "Parchment",
+      "ar": "رقّي",
+      "hex": "#FEFCAF"
+    },
+    {
+      "en": "Brown",
+      "ar": "بني",
+      "hex": "#653700"
+    },
+    {
+      "en": "Dark Brown",
+      "ar": "بني داكن",
+      "hex": "#341C02"
+    },
+    {
+      "en": "Light Brown",
+      "ar": "بني فاتح",
+      "hex": "#AD8150"
+    },
+    {
+      "en": "Chocolate",
+      "ar": "شوكولاتي",
+      "hex": "#3D1C02"
+    },
+    {
+      "en": "Coffee",
+      "ar": "قهوي",
+      "hex": "#A6814C"
+    },
+    {
+      "en": "Cocoa",
+      "ar": "كاكاوي",
+      "hex": "#875F42"
+    },
+    {
+      "en": "Caramel",
+      "ar": "كراميل",
+      "hex": "#AF6F09"
+    },
+    {
+      "en": "Cinnamon",
+      "ar": "قرفي",
+      "hex": "#AC4F06"
+    },
+    {
+      "en": "Chestnut",
+      "ar": "كستنائي",
+      "hex": "#742802"
+    },
+    {
+      "en": "Sienna",
+      "ar": "سيينا",
+      "hex": "#A9561E"
+    },
+    {
+      "en": "Raw Sienna",
+      "ar": "سيينا خام",
+      "hex": "#9A6200"
+    },
+    {
+      "en": "Burnt Sienna",
+      "ar": "سيينا محروقة",
+      "hex": "#B04E0F"
+    },
+    {
+      "en": "Umber",
+      "ar": "بني أمبر",
+      "hex": "#B26400"
+    },
+    {
+      "en": "Mahogany",
+      "ar": "ماهوجني",
+      "hex": "#4A0100"
+    },
+    {
+      "en": "Green",
+      "ar": "أخضر",
+      "hex": "#15B01A"
+    },
+    {
+      "en": "Dark Green",
+      "ar": "أخضر داكن",
+      "hex": "#033500"
+    },
+    {
+      "en": "Light Green",
+      "ar": "أخضر فاتح",
+      "hex": "#96F97B"
+    },
+    {
+      "en": "Forest Green",
+      "ar": "أخضر غابي",
+      "hex": "#06470C"
+    },
+    {
+      "en": "Pine Green",
+      "ar": "أخضر صنوبرى",
+      "hex": "#0A481E"
+    },
+    {
+      "en": "Emerald",
+      "ar": "زمردي",
+      "hex": "#01A049"
+    },
+    {
+      "en": "Jade",
+      "ar": "يشمي",
+      "hex": "#1FA774"
+    },
+    {
+      "en": "Olive",
+      "ar": "زيتوني",
+      "hex": "#6E750E"
+    },
+    {
+      "en": "Olive Green",
+      "ar": "أخضر زيتوني",
+      "hex": "#677A04"
+    },
+    {
+      "en": "Sage",
+      "ar": "مريمي",
+      "hex": "#87AE73"
+    },
+    {
+      "en": "Moss",
+      "ar": "طحلبي",
+      "hex": "#769958"
+    },
+    {
+      "en": "Fern",
+      "ar": "سرخسي",
+      "hex": "#63A950"
+    },
+    {
+      "en": "Mint",
+      "ar": "نعناعي",
+      "hex": "#9FFEB0"
+    },
+    {
+      "en": "Mint Green",
+      "ar": "أخضر نعناعي",
+      "hex": "#8FFF9F"
+    },
+    {
+      "en": "Seafoam",
+      "ar": "زبد البحر",
+      "hex": "#80F9AD"
+    },
+    {
+      "en": "Sea Green",
+      "ar": "أخضر بحري",
+      "hex": "#53FCA1"
+    },
+    {
+      "en": "Lime",
+      "ar": "ليموني أخضر",
+      "hex": "#AAFF32"
+    },
+    {
+      "en": "Lime Green",
+      "ar": "أخضر ليموني",
+      "hex": "#89FE05"
+    },
+    {
+      "en": "Chartreuse",
+      "ar": "شارتروز",
+      "hex": "#C1F80A"
+    },
+    {
+      "en": "Spring Green",
+      "ar": "أخضر ربيعي",
+      "hex": "#A9F971"
+    },
+    {
+      "en": "Avocado",
+      "ar": "أفوكادو",
+      "hex": "#90B134"
+    },
+    {
+      "en": "Pistachio",
+      "ar": "فستقي",
+      "hex": "#C0FA8B"
+    },
+    {
+      "en": "Blue",
+      "ar": "أزرق",
+      "hex": "#0343DF"
+    },
+    {
+      "en": "Dark Blue",
+      "ar": "أزرق داكن",
+      "hex": "#00035B"
+    },
+    {
+      "en": "Light Blue",
+      "ar": "أزرق فاتح",
+      "hex": "#95D0FC"
+    },
+    {
+      "en": "Navy",
+      "ar": "كحلي",
+      "hex": "#01153E"
+    },
+    {
+      "en": "Navy Blue",
+      "ar": "أزرق كحلي",
+      "hex": "#001146"
+    },
+    {
+      "en": "Royal Blue",
+      "ar": "أزرق ملكي",
+      "hex": "#0504AA"
+    },
+    {
+      "en": "Cobalt",
+      "ar": "كوبالتي",
+      "hex": "#1E488F"
+    },
+    {
+      "en": "Sapphire",
+      "ar": "ياقوتي أزرق",
+      "hex": "#2138AB"
+    },
+    {
+      "en": "Cerulean",
+      "ar": "سماوي عميق",
+      "hex": "#0485D1"
+    },
+    {
+      "en": "Azure",
+      "ar": "لازوردي",
+      "hex": "#069AF3"
+    },
+    {
+      "en": "Sky Blue",
+      "ar": "أزرق سماوي",
+      "hex": "#75BBFD"
+    },
+    {
+      "en": "Powder Blue",
+      "ar": "أزرق بودري",
+      "hex": "#B1D1FC"
+    },
+    {
+      "en": "Steel Blue",
+      "ar": "أزرق فولاذي",
+      "hex": "#5A7D9A"
+    },
+    {
+      "en": "Denim",
+      "ar": "دنيمي",
+      "hex": "#3B638C"
+    },
+    {
+      "en": "Indigo",
+      "ar": "نيلي",
+      "hex": "#380282"
+    },
+    {
+      "en": "Petrol",
+      "ar": "بترولي",
+      "hex": "#005F6A"
+    },
+    {
+      "en": "Teal",
+      "ar": "أزرق مخضر",
+      "hex": "#029386"
+    },
+    {
+      "en": "Dark Teal",
+      "ar": "أزرق مخضر داكن",
+      "hex": "#014D4E"
+    },
+    {
+      "en": "Turquoise",
+      "ar": "فيروزي",
+      "hex": "#06C2AC"
+    },
+    {
+      "en": "Aquamarine",
+      "ar": "زبرجدي بحري",
+      "hex": "#04D8B2"
+    },
+    {
+      "en": "Aqua",
+      "ar": "مائي",
+      "hex": "#13EAC9"
+    },
+    {
+      "en": "Cyan",
+      "ar": "سياني",
+      "hex": "#00FFFF"
+    },
+    {
+      "en": "Duck Egg Blue",
+      "ar": "أزرق بيض البط",
+      "hex": "#C3FBF4"
+    },
+    {
+      "en": "Ice Blue",
+      "ar": "أزرق جليدي",
+      "hex": "#D7FFFE"
+    },
+    {
+      "en": "Purple",
+      "ar": "أرجواني",
+      "hex": "#7E1E9C"
+    },
+    {
+      "en": "Dark Purple",
+      "ar": "أرجواني داكن",
+      "hex": "#35063E"
+    },
+    {
+      "en": "Light Purple",
+      "ar": "أرجواني فاتح",
+      "hex": "#BF77F6"
+    },
+    {
+      "en": "Violet",
+      "ar": "بنفسجي",
+      "hex": "#9A0EEA"
+    },
+    {
+      "en": "Lavender",
+      "ar": "لافندري",
+      "hex": "#C79FEF"
+    },
+    {
+      "en": "Lilac",
+      "ar": "ليلكي",
+      "hex": "#CEA2FD"
+    },
+    {
+      "en": "Mauve",
+      "ar": "موف",
+      "hex": "#AE7181"
+    },
+    {
+      "en": "Plum",
+      "ar": "برقوقي",
+      "hex": "#580F41"
+    },
+    {
+      "en": "Aubergine",
+      "ar": "باذنجاني",
+      "hex": "#3D0734"
+    },
+    {
+      "en": "Eggplant",
+      "ar": "باذنجاني",
+      "hex": "#380835"
+    },
+    {
+      "en": "Amethyst",
+      "ar": "جمشتي",
+      "hex": "#9B5FC0"
+    },
+    {
+      "en": "Periwinkle",
+      "ar": "بنفسجي مزرق",
+      "hex": "#8E82FE"
+    },
+    {
+      "en": "Magenta",
+      "ar": "ماجنتا",
+      "hex": "#C20078"
+    },
+    {
+      "en": "Fuchsia",
+      "ar": "فوشي",
+      "hex": "#ED0DD9"
+    },
+    {
+      "en": "Orchid",
+      "ar": "أوركيدي",
+      "hex": "#C875C4"
+    },
+    {
+      "en": "Mulberry",
+      "ar": "توتي",
+      "hex": "#920A4E"
+    },
+    {
+      "en": "Pink",
+      "ar": "وردي",
+      "hex": "#FF81C0"
+    },
+    {
+      "en": "Dark Pink",
+      "ar": "وردي داكن",
+      "hex": "#CB416B"
+    },
+    {
+      "en": "Light Pink",
+      "ar": "وردي فاتح",
+      "hex": "#FFD1DF"
+    },
+    {
+      "en": "Hot Pink",
+      "ar": "وردي فاقع",
+      "hex": "#FF028D"
+    },
+    {
+      "en": "Pale Pink",
+      "ar": "وردي شاحب",
+      "hex": "#FFCFDC"
+    },
+    {
+      "en": "Blush",
+      "ar": "وردي خجول",
+      "hex": "#F29E8E"
+    },
+    {
+      "en": "Rose Pink",
+      "ar": "وردي جوري",
+      "hex": "#F7879A"
+    },
+    {
+      "en": "Salmon Pink",
+      "ar": "وردي سلموني",
+      "hex": "#FE7B7C"
+    },
+    {
+      "en": "Dusty Pink",
+      "ar": "وردي معتّق",
+      "hex": "#D58A94"
+    },
+    {
+      "en": "Raspberry",
+      "ar": "توتي أحمر",
+      "hex": "#B00149"
+    },
+    {
+      "en": "Watermelon",
+      "ar": "بطيخي",
+      "hex": "#FD4659"
+    },
+    {
+      "en": "Bubblegum Pink",
+      "ar": "وردي علكة",
+      "hex": "#FE83CC"
+    }
+  ]
+}

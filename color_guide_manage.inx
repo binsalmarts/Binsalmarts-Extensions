@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Refresh Saved Guide · تحديث الدليل</name>
+  <id>com.binsalmarts.color-guide-pro.refresh</id>
+  <param name="action" type="string" gui-hidden="true">refresh</param>
+  <label appearance="header">Refresh Color Guide Pro</label>
+  <label>Select the generated guide or one of its objects. Without a selection, the last generated guide is refreshed.</label>
+  <label>Re-reads the original source colors using the saved settings. Custom brand names are retained. Manual edits inside generated pages are replaced. Exports are not repeated.</label>
+  <effect><object-type>all</object-type><effects-menu><submenu name="Binsalmarts Extensions &gt;"><submenu name="Color Guide Pro"/></submenu></effects-menu></effect>
+  <script><command location="inx" interpreter="python">color_guide_pro.py</command></script>
+</inkscape-extension>

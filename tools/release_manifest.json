@@ -103,6 +103,23 @@
       "examples": [
         "examples/vector_effects/*.svg"
       ]
+    },
+    {
+      "name": "Color-Guide-Pro",
+      "version": "1.0.0",
+      "files": [
+        "color_guide_pro.py",
+        "color_guide_colors.py",
+        "color_guide_render.py",
+        "color_guide_names.json",
+        "color_guide_pro.inx",
+        "color_guide_manage.inx",
+        "COLOR_GUIDE_THIRD_PARTY.md"
+      ],
+      "readme": "COLOR_GUIDE_README.md",
+      "examples": [
+        "examples/color_guide/*.svg"
+      ]
     }
   ]
 }

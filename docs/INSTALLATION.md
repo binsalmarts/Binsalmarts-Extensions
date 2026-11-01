@@ -4,9 +4,9 @@
 
 ## تثبيت جميع الإضافات
 
-1. نزّل `Binsalmarts-Extensions-1.0.0.zip` من [آخر إصدار](https://github.com/binsalmarts/Binsalmarts-Extensions/releases/latest).
+1. نزّل `Binsalmarts-Extensions-1.1.0.zip` من [آخر إصدار](https://github.com/binsalmarts/Binsalmarts-Extensions/releases/latest).
 2. فك الضغط. افتح **Preferences → System → User extensions** في Inkscape، وانسخ المسار الذي يعرضه البرنامج.
-3. انسخ المجلدات الثمانية، من `ASCII-Art-Pro` إلى `Vector-Effects-Pro`، إلى ذلك المسار. أبقِ ملفات `.py` و`.inx` معًا داخل كل مجلد. لا تنسخ المجلد الخارجي للحزمة إلى مسار الإضافات.
+3. انسخ المجلدات التسعة، من `ASCII-Art-Pro` إلى `Color-Guide-Pro`، إلى ذلك المسار. أبقِ ملفات `.py` و`.inx` معًا داخل كل مجلد. لا تنسخ المجلد الخارجي للحزمة إلى مسار الإضافات.
 4. عند التحديث، استبدل الملفات في مجلد الإضافة المثبتة نفسه، وتجنب وجود نسختين بمعرّف الإضافة نفسه.
 5. أعد تشغيل Inkscape. افتح **Extensions → Binsalmarts Extensions >**.
 
@@ -29,4 +29,4 @@
 
 ## English quick start
 
-Download the complete extension ZIP from Releases, extract it, and copy the **eight individual extension folders** into the User extensions directory displayed in Inkscape Preferences → System. Restart Inkscape and open Extensions → Binsalmarts Extensions >. Each `.inx` must stay beside its Python script. Install one copy of each extension. The Studio Dark theme has a separate macOS installer.
+Download the complete extension ZIP from Releases, extract it, and copy the **nine individual extension folders** into the User extensions directory displayed in Inkscape Preferences → System. Restart Inkscape and open Extensions → Binsalmarts Extensions >. Each `.inx` must stay beside its Python script. Install one copy of each extension. The Studio Dark theme has a separate macOS installer.

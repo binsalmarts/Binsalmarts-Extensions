@@ -12,6 +12,7 @@
 | Logo Construction | [مصدر الشعار](logo_construction/source-logo.svg) | [مخطط البناء](logo_construction/construction-demo.svg) | حدد الشعار ثم افتح Logo Construction |
 | Blend Tool Pro | [blend-source.svg](blend_tool/blend-source.svg) | [خط مستقيم](blend_tool/blend-straight.svg)، [منحنى](blend_tool/blend-curved.svg)، [3D](blend_tool/blend-3d-demo.svg) | حدد الشكلين الملونين؛ للمنحنى استخدم Spine ID: `guide` |
 | Vector Effects Pro | [effects-source.svg](vector_effects/effects-source.svg) | [معرض](vector_effects/effects-gallery.svg)، [Grain](vector_effects/grain-gallery.svg)، [Noise](vector_effects/noise-gallery.svg)، [تركيب](vector_effects/effects-combined.svg) | حدد شكلًا ثم اختر المؤثر أو Grain أو Noise |
+| Color Guide Pro | [مصدر الألوان](color_guide/source.svg) | [الدليل الإنجليزي](color_guide/brand-guide-en-pages.svg)، [تكوينات عربية](color_guide/combinations-ar-pages.svg)، [شكل مخصص](color_guide/custom-symbol-ar-pages.svg)، [بطاقات](color_guide/cards-ar-pages.svg)، [تدرجات](color_guide/gradients-en-pages.svg) | حدد مجموعة brand-colors، وافتح Color Guide Pro واختر الصفحات المطلوبة |
 
 الثيم له [ملف صفحة جاهز](../studio_dark/examples/Studio-Dark.svg) و[صورة واجهة](../studio_dark/qa/preview-controls-v23.png). يتوفر أيضًا [فيديو عربي لـLogo Export](../tutorials/logo-export-pro/README.md).
 

@@ -4,9 +4,9 @@
 [![Release](https://img.shields.io/github/v/release/binsalmarts/Binsalmarts-Extensions)](https://github.com/binsalmarts/Binsalmarts-Extensions/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-**٨ إضافات للتصميم في Inkscape**: إنشاء الصفحات والشبكات، ترقيمها، بناء الشعارات وتصديرها، مزج الأشكال، مؤثرات الفيكتور، وتحويل الصور إلى ASCII. معها أمثلة SVG قابلة للتحرير، وثيم Studio Dark Compact في حزمة مستقلة.
+**٩ إضافات للتصميم في Inkscape**: إنشاء الصفحات والشبكات، ترقيمها، بناء الشعارات وتصديرها، مزج الأشكال، مؤثرات الفيكتور، وتحويل الصور إلى ASCII. معها أمثلة SVG قابلة للتحرير، وثيم Studio Dark Compact في حزمة مستقلة.
 
-Eight Inkscape extensions for layout, logos and editable vector artwork, with SVG examples and a separate macOS theme. Requires **Inkscape 1.4+**. Extension interfaces are English; Arabic artwork is supported where described in each guide.
+Nine Inkscape extensions for layout, logos and editable vector artwork, with SVG examples and a separate macOS theme. Requires **Inkscape 1.4+**. Extension interfaces are English; Arabic artwork is supported where described in each guide.
 
 **[تنزيل آخر إصدار · Download](https://github.com/binsalmarts/Binsalmarts-Extensions/releases/latest)** · **[التثبيت](docs/INSTALLATION.md)** · **[الأمثلة](examples/README.md)** · **[الإبلاغ عن مشكلة](https://github.com/binsalmarts/Binsalmarts-Extensions/issues/new/choose)**
 
@@ -22,6 +22,7 @@ Eight Inkscape extensions for layout, logos and editable vector artwork, with SV
 | Logo Construction | 1.0.0 | مخطط بناء الشعار، القياسات والمراجع الهندسية | [الدليل](LOGO_CONSTRUCTION_README.md) | [المخطط](examples/logo_construction/construction-demo.svg) |
 | Blend Tool Pro | 1.1.0 | مزج الأشكال والألوان على خط أو منحنى مع مظهر ثلاثي الأبعاد | [الدليل](BLEND_TOOL_README.md) | [مزج 3D](examples/blend_tool/blend-3d-demo.svg) |
 | Vector Effects Pro | 1.2.0 | مؤثرات الشكل والظل والتوهج وGrain وNoise | [الدليل](VECTOR_EFFECTS_README.md) | [معرض التأثيرات](examples/vector_effects/effects-gallery.svg) |
+| Color Guide Pro | 1.0.0 | دليل ألوان هوية عربي/إنجليزي، صفحات اختيارية، درجات وتباين وتكوينات وتصدير | [الدليل](COLOR_GUIDE_README.md) | [تكوينات عربية](examples/color_guide/combinations-ar-pages.svg) |
 
 **Studio Dark Compact 2.3**: ثيم داكن ومُدمج، مع مثبّت واستعادة لـmacOS. [دليل الثيم](studio_dark/README_AR.md) · [صورة الواجهة](studio_dark/qa/preview-controls-v23.png).
 
@@ -37,11 +38,16 @@ Eight Inkscape extensions for layout, logos and editable vector artwork, with SV
 | **Page Numbering** | **Artboard Maker** |
 | [![Page Numbering](docs/images/page-numbering.png)](examples/page_numbering/numbered.svg) | [![Artboard Maker](docs/images/artboard-maker.png)](examples/artboard_maker/mixed.svg) |
 
+### Color Guide Pro — أمثلة جديدة
+
+[![لوحة ألوان الهوية](docs/images/color-guide-palette.png)](examples/color_guide/brand-guide-en-pages.svg)
+[![تكوينات الألوان بالعربية](docs/images/color-guide-combinations-ar.png)](examples/color_guide/combinations-ar-pages.svg)
+
 ## التثبيت السريع
 
-1. نزّل **Binsalmarts-Extensions-1.0.0.zip** من [Releases](https://github.com/binsalmarts/Binsalmarts-Extensions/releases/latest) وفك الضغط.
+1. نزّل **Binsalmarts-Extensions-1.1.0.zip** من [Releases](https://github.com/binsalmarts/Binsalmarts-Extensions/releases/latest) وفك الضغط.
 2. افتح **Preferences → System → User extensions** داخل Inkscape.
-3. انسخ **مجلدات الإضافات الثمانية** إلى المسار الظاهر، مع إبقاء ملفات `.py` و`.inx` معًا.
+3. انسخ **مجلدات الإضافات التسعة** إلى المسار الظاهر، مع إبقاء ملفات `.py` و`.inx` معًا.
 4. أعد تشغيل Inkscape، ثم افتح **Extensions → Binsalmarts Extensions >**.
 
 توجد أيضًا حزمة ZIP مستقلة لكل إضافة، وحزمة أمثلة، وملف `SHA256SUMS`. ثيم Studio Dark له حزمة ومثبّت مستقلان. اقرأ [تعليمات التثبيت](docs/INSTALLATION.md) للتفاصيل والتحديث وحل المشكلات.
@@ -49,7 +55,7 @@ Eight Inkscape extensions for layout, logos and editable vector artwork, with SV
 ## التوافق والتحقق
 
 - تتطلب الإضافات Inkscape 1.4+ وPython/Inkex المرفقين به؛ تستخدم ASCII Art وLogo Export أيضًا Pillow.
-- نجح **271 اختبارًا، وتُجاوزت 4 اختبارات**، على macOS مع Inkscape 1.4.4. تشمل المجموعة اختبارات فعلية للرسم والتصدير وحفظ SVG وإعادة فتحه.
+- تشمل الاختبارات حسابات الألوان والتباين والتحديث والصفحات والتصدير، مع Inkscape 1.4.4. تشمل المجموعة اختبارات فعلية للرسم والتصدير وحفظ SVG وإعادة فتحه.
 - يشغّل GitHub Actions اختبارات Linux، ويتحقق من ملفات INX والأمثلة وبناء الحزم. حالة التشغيل ظاهرة في شارة CI أعلاه. Windows لم يُختبر.
 - تبقى النصوص قابلة للتحرير وتعتمد على الخطوط المثبتة. توضح أدلة الإضافات القيود الخاصة بكل ميزة.
 
