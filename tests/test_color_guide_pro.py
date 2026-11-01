@@ -156,6 +156,12 @@ class GuideTests(unittest.TestCase):
         self.assertEqual(len(second.svg.xpath('//inkscape:page',namespaces=inkex.NSS)),2)
         self.assertNotIn('export_dir',json.loads(guide(second).get(SETTINGS)))
 
+    def test_saved_refresh_keeps_all_original_sources_when_one_source_is_selected(self):
+        first=apply(None,'--id=art')
+        second=apply(etree.tostring(first.svg),'--action=refresh','--id=one')
+        self.assertEqual(json.loads(guide(second).get(SOURCES)),['art'])
+        self.assertEqual(guide(second).get('data-cgp-color-count'),'2')
+
     def test_missing_source_on_refresh_fails_atomically(self):
         first=apply(None,'--id=art');first.svg.getElementById('art').delete()
         second=load(etree.tostring(first.svg),'--action=refresh');before=etree.tostring(second.svg)

@@ -1,10 +1,10 @@
-# Color Guide Pro 1.0.0 · دليل ألوان الهوية
+# Color Guide Pro 1.0.1 · دليل ألوان الهوية
 
 إضافة **مستقلة** لـInkscape 1.4+ لإعداد دليل ألوان الهوية من عناصر الفيكتور المحددة. لها ملفات ومعرّفات وقائمة خاصة بها، ويمكن تثبيتها بجانب Color Info Card الحالية.
 
 ## التثبيت
 
-فك ضغط `Color-Guide-Pro-1.0.0.zip`، ثم انسخ مجلد `Color-Guide-Pro` إلى مسار **Preferences → System → User extensions** وأعد تشغيل Inkscape. أبقِ ملفات Python الثلاثة وملف أسماء الألوان وملفي INX معًا. القائمة:
+فك ضغط `Color-Guide-Pro-1.0.1.zip`، ثم انسخ مجلد `Color-Guide-Pro` إلى مسار **Preferences → System → User extensions** وأعد تشغيل Inkscape. أبقِ ملفات Python الثلاثة وملف أسماء الألوان وملفي INX معًا. القائمة:
 
 **Extensions → Binsalmarts Extensions > → Color Guide Pro → Create / Update Guide**.
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## Suite 1.1.1 — 2026-11-01
+
+- Color Guide Pro 1.0.1: saved refresh always keeps the original linked source set, including when a single source element is selected. Add a regression test for this case.
+
 ## Suite 1.1.0 — 2026-11-01
 
 - Add Color Guide Pro 1.0.0 as an independent extension; Color Info Card remains unchanged.

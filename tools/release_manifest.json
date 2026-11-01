@@ -106,7 +106,7 @@
     },
     {
       "name": "Color-Guide-Pro",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "files": [
         "color_guide_pro.py",
         "color_guide_colors.py",

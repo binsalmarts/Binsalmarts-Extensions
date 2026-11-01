@@ -4,7 +4,7 @@
 
 ## تثبيت جميع الإضافات
 
-1. نزّل `Binsalmarts-Extensions-1.1.0.zip` من [آخر إصدار](https://github.com/binsalmarts/Binsalmarts-Extensions/releases/latest).
+1. نزّل `Binsalmarts-Extensions-1.1.1.zip` من [آخر إصدار](https://github.com/binsalmarts/Binsalmarts-Extensions/releases/latest).
 2. فك الضغط. افتح **Preferences → System → User extensions** في Inkscape، وانسخ المسار الذي يعرضه البرنامج.
 3. انسخ المجلدات التسعة، من `ASCII-Art-Pro` إلى `Color-Guide-Pro`، إلى ذلك المسار. أبقِ ملفات `.py` و`.inx` معًا داخل كل مجلد. لا تنسخ المجلد الخارجي للحزمة إلى مسار الإضافات.
 4. عند التحديث، استبدل الملفات في مجلد الإضافة المثبتة نفسه، وتجنب وجود نسختين بمعرّف الإضافة نفسه.

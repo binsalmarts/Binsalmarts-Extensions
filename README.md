@@ -22,7 +22,7 @@ Nine Inkscape extensions for layout, logos and editable vector artwork, with SVG
 | Logo Construction | 1.0.0 | مخطط بناء الشعار، القياسات والمراجع الهندسية | [الدليل](LOGO_CONSTRUCTION_README.md) | [المخطط](examples/logo_construction/construction-demo.svg) |
 | Blend Tool Pro | 1.1.0 | مزج الأشكال والألوان على خط أو منحنى مع مظهر ثلاثي الأبعاد | [الدليل](BLEND_TOOL_README.md) | [مزج 3D](examples/blend_tool/blend-3d-demo.svg) |
 | Vector Effects Pro | 1.2.0 | مؤثرات الشكل والظل والتوهج وGrain وNoise | [الدليل](VECTOR_EFFECTS_README.md) | [معرض التأثيرات](examples/vector_effects/effects-gallery.svg) |
-| Color Guide Pro | 1.0.0 | دليل ألوان هوية عربي/إنجليزي، صفحات اختيارية، درجات وتباين وتكوينات وتصدير | [الدليل](COLOR_GUIDE_README.md) | [تكوينات عربية](examples/color_guide/combinations-ar-pages.svg) |
+| Color Guide Pro | 1.0.1 | دليل ألوان هوية عربي/إنجليزي، صفحات اختيارية، درجات وتباين وتكوينات وتصدير | [الدليل](COLOR_GUIDE_README.md) | [تكوينات عربية](examples/color_guide/combinations-ar-pages.svg) |
 
 **Studio Dark Compact 2.3**: ثيم داكن ومُدمج، مع مثبّت واستعادة لـmacOS. [دليل الثيم](studio_dark/README_AR.md) · [صورة الواجهة](studio_dark/qa/preview-controls-v23.png).
 
@@ -45,7 +45,7 @@ Nine Inkscape extensions for layout, logos and editable vector artwork, with SVG
 
 ## التثبيت السريع
 
-1. نزّل **Binsalmarts-Extensions-1.1.0.zip** من [Releases](https://github.com/binsalmarts/Binsalmarts-Extensions/releases/latest) وفك الضغط.
+1. نزّل **Binsalmarts-Extensions-1.1.1.zip** من [Releases](https://github.com/binsalmarts/Binsalmarts-Extensions/releases/latest) وفك الضغط.
 2. افتح **Preferences → System → User extensions** داخل Inkscape.
 3. انسخ **مجلدات الإضافات التسعة** إلى المسار الظاهر، مع إبقاء ملفات `.py` و`.inx` معًا.
 4. أعد تشغيل Inkscape، ثم افتح **Extensions → Binsalmarts Extensions >**.

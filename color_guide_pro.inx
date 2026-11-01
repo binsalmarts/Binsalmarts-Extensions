@@ -4,7 +4,7 @@
   <id>com.binsalmarts.color-guide-pro</id>
   <param name="tab" type="notebook">
     <page name="sections" gui-text="Pages · الصفحات">
-      <label appearance="header">Color Guide Pro · 1.0</label>
+      <label appearance="header">Color Guide Pro · 1.0.1</label>
       <label>Select vector artwork or a group. Enable only the sections you need.</label>
       <param name="action" type="optiongroup" appearance="combo" gui-text="Action · العملية">
         <option value="create">Create a new independent guide · دليل جديد</option>

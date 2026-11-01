@@ -17,7 +17,7 @@ from lxml import etree
 from color_guide_colors import Swatch, rgba, hex_rgb, nearest_name, name_overrides, rgb_cmyk, rgb_hsl
 from color_guide_render import GuideRenderer, node, SVG, W, H
 
-VERSION='1.0.0'
+VERSION='1.0.1'
 MARKER='data-color-guide-pro'
 SETTINGS='data-cgp-settings'
 SOURCES='data-cgp-sources'
@@ -385,7 +385,8 @@ class ColorGuidePro(inkex.EffectExtension):
         box,sx,sy=self.geometry()
         selected=[n for n in self.svg.selection.values() if not managed(n)]
         roots=[n for n in selected if not any(a in selected for a in n.iterancestors())]
-        if o.action in ('refresh','update') and previous is not None and not roots: roots=self.saved_sources(previous)
+        if o.action=='refresh' and previous is not None: roots=self.saved_sources(previous)
+        elif o.action=='update' and previous is not None and not roots: roots=self.saved_sources(previous)
         if not roots: raise inkex.AbortExtension('Select vector artwork or a group whose colors should be collected.')
         if len(roots)>1000: raise inkex.AbortExtension('Select at most 1,000 source objects, or group them.')
         reader=ColorReader(self.svg,o);colors,gradients=reader.read(roots)
