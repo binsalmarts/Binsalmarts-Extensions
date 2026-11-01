@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="1000" height="600" viewBox="0 0 1000 600"><sodipodi:namedview xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" pagecolor="#ffffff" inkscape:pageopacity="1"/><defs><linearGradient id="grain-gradient" x1="0" y1="0" x2="1" y2="0.35">
+ <stop offset="0" stop-color="#ffad8d"/><stop offset="0.48" stop-color="#df78b4"/><stop offset="1" stop-color="#635bff"/>
+ </linearGradient></defs>
+ <rect width="1000" height="600" fill="#f4f6fa"/>
+ <text x="70" y="70" style="font-family:sans-serif;font-size:28px;fill:#17243d">Grain — gradient source</text>
+ <text x="70" y="108" style="font-family:sans-serif;font-size:15px;fill:#68748c">Select the gradient shape → Extensions → Vector Effects Pro → Grain.</text>
+ <g id="grain-design" transform="translate(500,300)">
+  <path id="grain-motif" d="M-300,-80 H300 V80 H-300 Z M-100,-35 H-55 V35 H-100 Z M55,-35 H100 V35 H55 Z" fill="url(#grain-gradient)" fill-rule="evenodd"/>
+ </g>
+ <text x="70" y="540" style="font-family:sans-serif;font-size:14px;fill:#68748c">Procedural SVG texture. Original gradient and transparency are preserved.</text>
+</svg>

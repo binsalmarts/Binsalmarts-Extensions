@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Noise · النويز</name>
+  <id>com.binsalmarts.vector-effects-pro.noise</id>
+  <param name="geometry" type="string" gui-hidden="true">none</param>
+  <param name="noise" type="bool" gui-hidden="true">true</param>
+  <label appearance="header">Noise · Vector Effects Pro 1.2</label>
+  <param name="noise_type" type="optiongroup" appearance="combo" gui-text="Noise type · نوع النويز">
+    <option value="additive">Additive · تشويش فاتح وداكن</option>
+    <option value="speckle">Speckle · تشويش مضاعف</option>
+    <option value="salt_pepper">Salt &amp; Pepper · نقط فاتحة وداكنة</option>
+  </param>
+  <param name="noise_amount" type="float" min="0" max="100" precision="1" gui-text="Noise amount (%) · قوة النويز">35</param>
+  <param name="noise_size" type="float" min="0.2" max="100" precision="2" gui-text="Noise size (px) · حجم النويز">1</param>
+  <param name="noise_density" type="float" min="0" max="100" precision="1" gui-text="Salt &amp; Pepper density · انتشار النقط">35</param>
+  <param name="noise_seed" type="int" min="0" max="2147483647" gui-text="Noise seed · البذرة العشوائية">1</param>
+  <param name="noise_monochrome" type="bool" gui-text="Monochrome noise · نويز أحادي اللون">true</param>
+  <label>Disable Monochrome for colored noise. Density controls Salt &amp; Pepper only and is a relative threshold.</label>
+  <label>This shortcut applies Noise only. To combine with Grain or other effects, use the Noise tab in the main Vector Effects Pro dialog.</label>
+  <label>Amount=0 preserves the source. Additive can lighten black; Speckle leaves pure black unchanged.</label>
+  <label>Solid colors and gradients are supported. Convert text to paths and unlink clones. Save as Inkscape SVG.</label>
+  <effect needs-live-preview="true">
+    <object-type>all</object-type>
+    <effects-menu><submenu name="Binsalmarts Extensions &gt;"><submenu name="Vector Effects Pro"/></submenu></effects-menu>
+  </effect>
+  <script><command location="inx" interpreter="python">vector_effects_pro.py</command></script>
+</inkscape-extension>

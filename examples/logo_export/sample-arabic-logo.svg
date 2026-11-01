@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="brand-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <g id="logo-icon" transform="translate(100,160)">
+    <rect width="120" height="120" rx="30" fill="url(#brand-gradient)"/>
+    <path d="M30 84V36h28c22 0 34 10 34 24S80 84 58 84ZM48 68h10c11 0 16-3 16-8s-5-8-16-8H48Z" fill="#fff" fill-rule="evenodd"/>
+  </g>
+  <g id="logo-name" fill="#172033" transform="translate(270,244)">
+    <text x="0" y="0" style="font-family:DejaVu Sans;font-size:60px;font-weight:bold">السلام</text>
+  </g>
+  <text x="100" y="70" fill="#64748b" style="font-family:sans-serif;font-size:18px">Select logo-icon and logo-name, then open Logo Export Pro.</text>
+</svg>

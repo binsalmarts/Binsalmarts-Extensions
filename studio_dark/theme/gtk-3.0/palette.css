@@ -1,0 +1,4 @@
+/* Only improve inactive tab labels. All native theme colour names, including
+ * the colours queried by Inkscape's rulers, remain defined by the MacTahoe base with the darker surface tones.
+ */
+@define-color studio_secondary #b2b2b2;

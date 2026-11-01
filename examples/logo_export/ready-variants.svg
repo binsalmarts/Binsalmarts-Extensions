@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="900" height="700">
+  <g id="ready-horizontal" transform="translate(20,30)">
+    <g id="hi" transform="translate(260,0)">
+      <path d="M50 0A50 50 0 0 1 100 50H78A28 28 0 0 0 50 22Z" fill="#e52b20"/>
+      <path d="M0 50A50 50 0 0 0 50 100V78A28 28 0 0 1 22 50Z" fill="#e52b20"/>
+      <path d="M40 35H60V65H40Z" fill="#e52b20"/>
+    </g>
+    <g id="hn" transform="translate(0,20)">
+      <path d="M0 0H210V12H0Z" fill="#111"/>
+      <path d="M10 28H220V42H10Z" fill="#111"/>
+      <path d="M0 48H180V65H0Z" fill="#111"/>
+    </g>
+  </g>
+  <g id="ready-vertical" transform="translate(500,30)">
+    <g id="vi" transform="translate(60,0) scale(1.6)">
+      <path d="M50 0A50 50 0 0 1 100 50H78A28 28 0 0 0 50 22Z" fill="#e52b20"/>
+      <path d="M0 50A50 50 0 0 0 50 100V78A28 28 0 0 1 22 50Z" fill="#e52b20"/>
+      <path d="M40 35H60V65H40Z" fill="#e52b20"/>
+    </g>
+    <g id="vn" transform="translate(0,210) scale(1.2727272727)">
+      <path d="M0 0H210V12H0Z" fill="#111"/>
+      <path d="M10 28H220V42H10Z" fill="#111"/>
+      <path d="M0 48H180V65H0Z" fill="#111"/>
+    </g>
+  </g>
+  <g id="ready-icon" transform="translate(320,450) scale(1.2)">
+    <path d="M50 0A50 50 0 0 1 100 50H78A28 28 0 0 0 50 22Z" fill="#e52b20"/>
+    <path d="M0 50A50 50 0 0 0 50 100V78A28 28 0 0 1 22 50Z" fill="#e52b20"/>
+    <path d="M40 35H60V65H40Z" fill="#e52b20"/>
+  </g>
+</svg>

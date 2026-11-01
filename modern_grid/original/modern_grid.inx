@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+
+  <name>Modern Grid</name>
+  <id>com.moderndesign.modern-grid</id>
+
+  <dependency type="executable" location="extensions">modern_grid.py</dependency>
+
+  <param name="tab" type="notebook">
+
+    <page name="column" gui-text="Column Grid">
+
+      <param name="col_count"  type="int"   min="1" max="64"                gui-text="Count">12</param>
+      <param name="col_type"   type="optiongroup" appearance="combo"         gui-text="Type">
+        <option value="stretch">Stretch</option>
+        <option value="fixed">Fixed</option>
+        <option value="auto">Auto</option>
+      </param>
+      <param name="col_width"  type="float" min="1" max="2000" precision="1" gui-text="Width (px) [Fixed only]">60</param>
+      <param name="col_gutter" type="float" min="0" max="500"  precision="1" gui-text="Gutter (px)">16</param>
+      <param name="col_align"  type="optiongroup" appearance="combo"         gui-text="Alignment">
+        <option value="left">Left</option>
+        <option value="center">Center</option>
+        <option value="right">Right</option>
+      </param>
+      <param name="col_offset" type="float" min="-1000" max="1000" precision="1" gui-text="Offset (px)">0</param>
+
+      <separator/>
+      <label appearance="header">Margin (px)</label>
+      <param name="col_margin_lock"   type="bool"  gui-text="Link Margins">false</param>
+      <param name="col_margin_all"    type="float" min="0" max="1000" precision="1" gui-text="Value for All Sides">20</param>
+      <separator/>
+      <param name="col_margin_top"    type="float" min="0" max="1000" precision="1" gui-text="Top">20</param>
+      <param name="col_margin_bottom" type="float" min="0" max="1000" precision="1" gui-text="Bottom">20</param>
+      <param name="col_margin_left"   type="float" min="0" max="1000" precision="1" gui-text="Left">20</param>
+      <param name="col_margin_right"  type="float" min="0" max="1000" precision="1" gui-text="Right">20</param>
+
+      <separator/>
+      <param name="col_color"   type="color" gui-text="Color">4278190335</param>
+      <param name="col_opacity" type="float" min="0.01" max="1.0" precision="2" gui-text="Opacity">0.10</param>
+
+    </page>
+
+    <page name="row" gui-text="Row Grid">
+
+      <param name="row_count"  type="int"   min="1" max="64"                gui-text="Count">8</param>
+      <param name="row_type"   type="optiongroup" appearance="combo"         gui-text="Type">
+        <option value="stretch">Stretch</option>
+        <option value="fixed">Fixed</option>
+        <option value="auto">Auto</option>
+      </param>
+      <param name="row_height" type="float" min="1" max="2000" precision="1" gui-text="Height (px) [Fixed only]">60</param>
+      <param name="row_gutter" type="float" min="0" max="500"  precision="1" gui-text="Gutter (px)">16</param>
+      <param name="row_align"  type="optiongroup" appearance="combo"         gui-text="Alignment">
+        <option value="top">Top</option>
+        <option value="center">Center</option>
+        <option value="bottom">Bottom</option>
+      </param>
+      <param name="row_offset" type="float" min="-1000" max="1000" precision="1" gui-text="Offset (px)">0</param>
+
+      <separator/>
+      <label appearance="header">Margin (px)</label>
+      <param name="row_margin_lock"   type="bool"  gui-text="Link Margins">false</param>
+      <param name="row_margin_all"    type="float" min="0" max="1000" precision="1" gui-text="Value for All Sides">20</param>
+      <separator/>
+      <param name="row_margin_top"    type="float" min="0" max="1000" precision="1" gui-text="Top">20</param>
+      <param name="row_margin_bottom" type="float" min="0" max="1000" precision="1" gui-text="Bottom">20</param>
+      <param name="row_margin_left"   type="float" min="0" max="1000" precision="1" gui-text="Left">20</param>
+      <param name="row_margin_right"  type="float" min="0" max="1000" precision="1" gui-text="Right">20</param>
+
+      <separator/>
+      <param name="row_color"   type="color" gui-text="Color">16711935</param>
+      <param name="row_opacity" type="float" min="0.01" max="1.0" precision="2" gui-text="Opacity">0.10</param>
+
+    </page>
+
+    <page name="grid" gui-text="Grid">
+
+      <param name="grd_columns" type="int"   min="1" max="200"               gui-text="Columns">9</param>
+      <param name="grd_rows"    type="int"   min="1" max="200"               gui-text="Rows">10</param>
+      <param name="grd_gutter"  type="float" min="0" max="200" precision="1" gui-text="Gutter (px)">8</param>
+      <param name="grd_style"   type="optiongroup" appearance="combo"         gui-text="Style">
+        <option value="fill">Fill</option>
+        <option value="outline">Outline</option>
+      </param>
+
+      <separator/>
+      <label appearance="header">Margin (px)</label>
+      <param name="grd_margin_lock"   type="bool"  gui-text="Link Margins">false</param>
+      <param name="grd_margin_all"    type="float" min="0" max="1000" precision="1" gui-text="Value for All Sides">20</param>
+      <separator/>
+      <param name="grd_margin_top"    type="float" min="0" max="1000" precision="1" gui-text="Top">20</param>
+      <param name="grd_margin_bottom" type="float" min="0" max="1000" precision="1" gui-text="Bottom">20</param>
+      <param name="grd_margin_left"   type="float" min="0" max="1000" precision="1" gui-text="Left">20</param>
+      <param name="grd_margin_right"  type="float" min="0" max="1000" precision="1" gui-text="Right">20</param>
+
+      <separator/>
+      <param name="grd_color"   type="color" gui-text="Color">2348810495</param>
+      <param name="grd_opacity" type="float" min="0.01" max="1.0" precision="2" gui-text="Opacity">0.08</param>
+      <param name="grd_border"  type="bool"  gui-text="Show outer border">true</param>
+
+    </page>
+
+    <page name="bento" gui-text="Bento Grid">
+
+      <param name="bto_count"   type="int"   min="2" max="30"                gui-text="Boxes Count">6</param>
+      <param name="bto_seed"    type="int"   min="1" max="10000"             gui-text="Random Seed (Change to shuffle)">1</param>
+      <param name="bto_sync"    type="bool"                                  gui-text="Same layout on all Artboards">true</param>
+      <param name="bto_gutter"  type="float" min="0" max="200"  precision="1" gui-text="Gutter (px)">12</param>
+      <param name="bto_rounded" type="float" min="0" max="200"  precision="1" gui-text="Corner Radius (px)">8</param>
+
+      <separator/>
+      <label appearance="header">Margin (px)</label>
+      <param name="bto_margin_lock"   type="bool"  gui-text="Link Margins">false</param>
+      <param name="bto_margin_all"    type="float" min="0" max="1000" precision="1" gui-text="Value for All Sides">20</param>
+      <separator/>
+      <param name="bto_margin_top"    type="float" min="0" max="1000" precision="1" gui-text="Top">20</param>
+      <param name="bto_margin_bottom" type="float" min="0" max="1000" precision="1" gui-text="Bottom">20</param>
+      <param name="bto_margin_left"   type="float" min="0" max="1000" precision="1" gui-text="Left">20</param>
+      <param name="bto_margin_right"  type="float" min="0" max="1000" precision="1" gui-text="Right">20</param>
+
+      <separator/>
+      <param name="bto_color"   type="color" gui-text="Color">2863311519</param>
+      <param name="bto_opacity" type="float" min="0.01" max="1.0" precision="2" gui-text="Opacity">0.15</param>
+
+    </page>
+
+  </param>
+
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Binsalmarts Extensions &gt;"/>
+    </effects-menu>
+  </effect>
+
+  <script>
+    <command location="extensions" interpreter="python">modern_grid.py</command>
+  </script>
+
+</inkscape-extension>

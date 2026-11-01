@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Set X Reference · تعيين مرجع X</name>
+  <id>com.binsalmarts.logo-construction.reference</id>
+  <param name="mode" type="string" gui-hidden="true">reference</param>
+  <label>Select exactly one logo part (Ctrl+Enter group or Ctrl+click to select a child). Apply to remember its Object ID in this document.</label>
+  <label>Then select the whole logo and open Logo Construction. Choose reference width or height there.</label>
+  <label>حدد جزءًا واحدًا من الشعار ثم اضغط تطبيق. بعد ذلك حدد الشعار كاملًا وافتح مخطط الشعار.</label>
+  <effect needs-live-preview="false">
+    <object-type>all</object-type>
+    <effects-menu><submenu name="Binsalmarts Extensions &gt;"><submenu name="Logo Construction"/></submenu></effects-menu>
+  </effect>
+  <script><command location="inx" interpreter="python">logo_construction.py</command></script>
+</inkscape-extension>

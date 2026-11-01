@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Page Numbering Pro</name>
+  <id>org.inkscape.document.page-numbering-pro</id>
+  <param name="tab" type="notebook">
+    <page name="numbering" gui-text="Numbering">
+      <label appearance="header">Page Numbering Pro · 1.2</label>
+      <param name="scope" type="optiongroup" appearance="combo" gui-text="Update scope">
+        <option value="auto">Auto · Selected number; template mode updates all</option>
+        <option value="all">All pages</option>
+        <option value="selected">Selected number only</option>
+      </param>
+      <param name="start_number" type="int" min="0" max="999999" gui-text="Start number (all pages)">1</param>
+      <param name="change_selected_value" type="bool" gui-text="Change selected value">false</param>
+      <param name="selected_number" type="int" min="0" max="999999" gui-text="New selected number" gui-description="Used only when Change selected value is enabled.">1</param>
+      <param name="renumber_following" type="bool" gui-text="Renumber following pages" gui-description="Optional when updating a selected number: change 2 to 3, then the next pages become 4, 5. Uses the entered or manually edited value; keeps following numbers styled and positioned.">false</param>
+      <param name="digits" type="optiongroup" appearance="combo" gui-text="Digit style">
+        <option value="western">Western (1, 2, 3)</option>
+        <option value="indic">Arabic-Indic</option>
+      </param>
+      <param name="minimum_digits" type="int" min="1" max="12" gui-text="Minimum digits" gui-description="1: 1; 2: 01; 3: 001. Adds leading zeros without truncating larger numbers. Templates keep their existing padding if wider.">1</param>
+      <label>Rerun after adding, deleting or moving pages. Existing numbers are updated.</label>
+      <label>Styling keeps the selected value. Enable Change selected value to replace it, and Renumber following pages to update later pages.</label>
+    </page>
+    <page name="placement" gui-text="Placement &amp; Template">
+      <param name="placement_mode" type="optiongroup" appearance="combo" gui-text="Placement and styling">
+        <option value="manual">Use settings</option>
+        <option value="template">Copy a number as a template</option>
+      </param>
+      <param name="template_source" type="optiongroup" appearance="combo" gui-text="Template source">
+        <option value="selected">Selected text number, including manually created text</option>
+        <option value="first">First existing number in page order</option>
+      </param>
+      <label>Copies font, size, color, digit style and relative position. The sequence follows the template value. Manual placement and font settings are ignored.</label>
+      <param name="vertical_position" type="optiongroup" appearance="combo" gui-text="Vertical position">
+        <option value="bottom">Bottom</option>
+        <option value="top">Top</option>
+        <option value="middle">Middle</option>
+      </param>
+      <param name="alignment" type="optiongroup" appearance="combo" gui-text="Horizontal position">
+        <option value="center">Center</option>
+        <option value="right">Right</option>
+        <option value="left">Left</option>
+      </param>
+      <param name="bottom_margin" type="float" min="0" max="10000" precision="2" gui-text="Top / bottom margin (px)" gui-description="Distance from the chosen edge to the text baseline. Ignored at Middle.">24</param>
+      <param name="side_margin" type="float" min="0" max="10000" precision="2" gui-text="Side margin (px)" gui-description="Used at Left or Right. Center uses the page center.">24</param>
+      <label>For one template number, choose Selected number only. Auto with Renumber following pages updates the selected page and those after it.</label>
+    </page>
+    <page name="appearance" gui-text="Appearance">
+      <param name="font_family" type="optiongroup" appearance="combo" gui-text="Font family">
+        <option value="sans-serif">Sans Serif</option>
+        <option value="Arial">Arial</option>
+        <option value="Liberation Sans">Liberation Sans</option>
+        <option value="DejaVu Sans">DejaVu Sans</option>
+        <option value="Noto Sans Arabic">Noto Sans Arabic</option>
+        <option value="Amiri">Amiri</option>
+        <option value="Cairo">Cairo</option>
+        <option value="Tajawal">Tajawal</option>
+        <option value="serif">Serif</option>
+        <option value="custom">Custom</option>
+      </param>
+      <param name="custom_font" type="string" gui-text="Custom font name">Noto Sans Arabic</param>
+      <param name="font_size" type="float" min="1" max="300" precision="2" gui-text="Font size (px)">16</param>
+      <param name="font_style" type="optiongroup" appearance="combo" gui-text="Font style">
+        <option value="normal">Normal</option>
+        <option value="bold">Bold</option>
+        <option value="italic">Italic</option>
+        <option value="bold_italic">Bold Italic</option>
+      </param>
+      <param name="color" type="color" appearance="colorbutton" gui-text="Number color">0x000000ff</param>
+      <label>Choose an installed font. Numbers stay editable SVG text in the Page Numbering layer.</label>
+      <label>Margins and size use px, even in mm or cm documents. Zoom does not change the measurements.</label>
+    </page>
+  </param>
+  <effect needs-live-preview="true">
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Binsalmarts Extensions &gt;"/>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">page_numbering_pro.py</command>
+  </script>
+</inkscape-extension>

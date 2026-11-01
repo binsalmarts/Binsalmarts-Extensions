@@ -1,0 +1,47 @@
+name: Validate and package
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      checkout_ref:
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.checkout_ref || github.ref }}
+          persist-credentials: false
+      - name: Install Inkscape and test dependencies
+        run: |
+          sudo add-apt-repository -y ppa:inkscape.dev/stable
+          sudo apt-get update
+          sudo apt-get install -y inkscape python3-pil python3-pypdf python3-lxml python3-numpy python3-scipy python3-cssselect python3-serial python3-packaging fonts-dejavu fonts-noto-core ghostscript xvfb
+          inkscape --version
+      - name: Validate repository
+        run: /usr/bin/python3 tools/validate_repository.py
+      - name: Run extension and renderer tests
+        run: xvfb-run -a /usr/bin/python3 tests/run_tests.py --inkex-dir /usr/share/inkscape/extensions --inkscape /usr/bin/inkscape
+      - name: Run theme installer recovery tests
+        run: /usr/bin/python3 -m unittest discover -s studio_dark/qa -p 'test_*.py' -v
+      - name: Build and verify release packages
+        run: |
+          /usr/bin/python3 tools/build_release.py
+          /usr/bin/python3 tools/validate_repository.py --archives dist/release
+      - uses: actions/upload-artifact@v7
+        with:
+          name: release-packages
+          path: dist/release/*
+          if-no-files-found: error
+          retention-days: 14

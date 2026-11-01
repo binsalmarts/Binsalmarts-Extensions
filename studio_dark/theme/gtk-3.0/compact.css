@@ -1,0 +1,28 @@
+/* Studio Dark 2.2: subtle changes to the MacTahoe base.
+ * Keep native heights and interaction states; remove capsule-shaped headings.
+ */
+notebook > header {
+  border-radius: 4px;
+}
+
+tabbox > tab,
+notebook > header > tabs > tab,
+notebook > header button.image-button,
+notebook > header button.flat.toggle.popup,
+notebook > header > tabs > tab button.flat,
+notebook > header > tabs > tab button.close-button,
+stackswitcher button,
+.stack-switcher > button {
+  border-radius: 4px;
+}
+
+notebook > header > tabs > tab:not(:checked) {
+  color: @studio_secondary;
+}
+
+/* Slightly slimmer scroll thumbs. Native longitudinal minimums still apply. */
+scrollbar slider {
+  min-width: 8px;
+  min-height: 8px;
+  border-radius: 4px;
+}

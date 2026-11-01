@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Logo Construction · مخطط الشعار</name>
+  <id>com.binsalmarts.logo-construction</id>
+  <param name="tab" type="notebook">
+    <page name="geometry" gui-text="Geometry · القياسات">
+      <label appearance="header">Logo Construction · 1.0</label>
+      <label>First select one part → Set X Reference. Then select the whole logo and open this dialog.</label>
+      <param name="reference_id" type="string" gui-text="X reference Object ID (optional)" gui-description="Leave empty to use the part saved by Set X Reference. Or enter an ID from Object Properties, without #."/>
+      <param name="reference_dimension" type="optiongroup" appearance="combo" gui-text="1X equals · مرجع الوحدة">
+        <option value="width">Reference width · عرض الجزء</option>
+        <option value="height">Reference height · ارتفاع الجزء</option>
+      </param>
+      <param name="component_scope" type="optiongroup" appearance="combo" gui-text="Logo components · أجزاء الشعار">
+        <option value="children">Children of one selected group; otherwise selected objects</option>
+        <option value="leaves">Individual paths and shapes inside the selection</option>
+        <option value="selection">Selected objects only (each group is one part)</option>
+      </param>
+      <hbox>
+        <vbox>
+          <param name="show_alignment" type="bool" gui-text="Alignment lines · المحاذاة">true</param>
+          <param name="show_axes" type="bool" gui-text="Axes · المحاور">true</param>
+          <param name="horizontal_axis" type="bool" gui-text="Horizontal axis · الأفقي">true</param>
+          <param name="vertical_axis" type="bool" gui-text="Vertical axis · الرأسي">true</param>
+        </vbox>
+        <spacer size="12"/>
+        <vbox>
+          <param name="show_nodes" type="bool" gui-text="Path nodes · عقد المسارات">true</param>
+          <param name="show_dimensions" type="bool" gui-text="Dimensions and labels · القياسات">true</param>
+          <param name="show_outlines" type="bool" gui-text="Additional path outlines · الحدود">false</param>
+        </vbox>
+      </hbox>
+      <separator/>
+      <hbox>
+        <vbox>
+          <param name="measure_overall" type="bool" gui-text="Overall width and height">true</param>
+          <param name="measure_reference" type="bool" gui-text="Reference ruler (1X)">true</param>
+        </vbox>
+        <spacer size="12"/>
+        <vbox>
+          <param name="measure_gaps" type="bool" gui-text="Gaps between neighboring parts">true</param>
+          <param name="measure_parts" type="bool" gui-text="Each part: width and height">false</param>
+        </vbox>
+      </hbox>
+      <param name="precision" type="int" min="0" max="8" gui-text="Decimal places · المنازل العشرية">3</param>
+      <label>Measurements use geometric path bounds after transforms, excluding stroke thickness. Axes cross the logo center.</label>
+    </page>
+    <page name="appearance" gui-text="Appearance · المظهر">
+      <hbox>
+        <vbox>
+          <param name="alignment_color" type="color" appearance="colorbutton" gui-text="Alignment">1904252671</param>
+          <param name="axis_color" type="color" appearance="colorbutton" gui-text="Axes">1904252671</param>
+          <param name="node_color" type="color" appearance="colorbutton" gui-text="Node border">607472639</param>
+          <param name="node_fill" type="color" appearance="colorbutton" gui-text="Node fill">4294967295</param>
+        </vbox>
+        <spacer size="20"/>
+        <vbox>
+          <param name="dimension_color" type="color" appearance="colorbutton" gui-text="Dimensions">8974079</param>
+          <param name="label_color" type="color" appearance="colorbutton" gui-text="Labels">607472639</param>
+          <param name="outline_color" type="color" appearance="colorbutton" gui-text="Path outlines">607472639</param>
+          <param name="background_color" type="color" appearance="colorbutton" gui-text="Background panel">4042520831</param>
+        </vbox>
+      </hbox>
+      <separator/>
+      <hbox>
+        <vbox>
+          <param name="line_width" type="float" min="0.05" max="100" precision="2" gui-text="Alignment width (px)">0.7</param>
+          <param name="axis_width" type="float" min="0.05" max="100" precision="2" gui-text="Axis width (px)">0.9</param>
+          <param name="node_width" type="float" min="0.05" max="100" precision="2" gui-text="Node border (px)">0.9</param>
+          <param name="node_size" type="float" min="0.1" max="500" precision="2" gui-text="Node size (px)">4</param>
+        </vbox>
+        <spacer size="12"/>
+        <vbox>
+          <param name="dimension_width" type="float" min="0.05" max="100" precision="2" gui-text="Dimension width (px)">1.3</param>
+          <param name="outline_width" type="float" min="0.05" max="100" precision="2" gui-text="Outline width (px)">0.8</param>
+          <param name="tick_size" type="float" min="0.1" max="500" precision="2" gui-text="Tick / arrow size (px)">6</param>
+          <param name="font_size" type="float" min="0.1" max="500" precision="2" gui-text="Label size (px)">14</param>
+        </vbox>
+      </hbox>
+      <param name="font_family" type="string" gui-text="Label font family · خط التسميات">sans-serif</param>
+      <hbox>
+        <param name="node_shape" type="optiongroup" appearance="combo" gui-text="Nodes">
+          <option value="square">Square</option><option value="circle">Circle</option>
+        </param>
+        <param name="axis_style" type="optiongroup" appearance="combo" gui-text="Axes">
+          <option value="dotted">Dotted</option><option value="dashed">Dashed</option><option value="solid">Solid</option>
+        </param>
+        <param name="dimension_style" type="optiongroup" appearance="combo" gui-text="Indicators">
+          <option value="ticks">Ticks</option><option value="arrows">Arrows</option><option value="bar">Filled bar</option>
+        </param>
+      </hbox>
+    </page>
+    <page name="layout" gui-text="Layout · التنظيم">
+      <label>Layout distances below are multiples of X. Stroke, nodes and font sizes on Appearance are in physical SVG px.</label>
+      <param name="extension" type="float" min="0" max="20" precision="2" gui-text="Alignment extension (× X)">0.7</param>
+      <param name="dimension_offset" type="float" min="0.01" max="20" precision="2" gui-text="Dimension offset (× X)">0.4</param>
+      <param name="lane_spacing" type="float" min="0.01" max="20" precision="2" gui-text="Minimum lane spacing (× X)">0.32</param>
+      <param name="background" type="optiongroup" appearance="combo" gui-text="Background · الخلفية">
+        <option value="keep">Keep document background · دون تغيير</option>
+        <option value="panel">Add editable panel beneath logo · خلفية متجهية</option>
+      </param>
+      <param name="panel_padding" type="float" min="0" max="20" precision="2" gui-text="Background padding (× X)">0.35</param>
+      <param name="layer_name" type="string" gui-text="Diagram layer name">Logo Construction · مخطط الشعار</param>
+      <param name="action" type="optiongroup" appearance="combo" gui-text="On apply">
+        <option value="replace">Replace diagrams for the same selection</option>
+        <option value="append">Add a separate diagram; keep previous diagrams</option>
+      </param>
+      <label>Replacing regenerates labels and resets manual moves. Original logo objects stay unchanged.</label>
+      <label>Enable Live preview below. Apply once when ready. Close preview without Apply to cancel.</label>
+      <label>Save as Inkscape SVG or Plain SVG. No PDF/PNG export is performed.</label>
+    </page>
+  </param>
+  <effect needs-live-preview="true">
+    <object-type>all</object-type>
+    <effects-menu><submenu name="Binsalmarts Extensions &gt;"><submenu name="Logo Construction"/></submenu></effects-menu>
+  </effect>
+  <script><command location="inx" interpreter="python">logo_construction.py</command></script>
+</inkscape-extension>

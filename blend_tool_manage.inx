@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Manage Blend · تحديث وفك المزج</name>
+  <id>com.binsalmarts.blend-tool-pro.manage</id>
+  <param name="action" type="optiongroup" appearance="combo" gui-text="Action · الإجراء">
+    <option value="refresh">Refresh saved settings · تحديث من العناصر الأصلية</option>
+    <option value="release">Release · إزالة الأشكال الوسيطة</option>
+    <option value="expand">Expand · فصل الارتباط وتحويله لمجموعة عادية</option>
+  </param>
+  <label>Select one generated Blend Tool Pro group. Refresh reads the current original shapes and regenerates using its stored settings.</label>
+  <label>Release removes the generated group; originals remain. Expand keeps generated paths and removes the update metadata.</label>
+  <effect needs-live-preview="false">
+    <object-type>all</object-type>
+    <effects-menu><submenu name="Binsalmarts Extensions &gt;"><submenu name="Blend Tool Pro"/></submenu></effects-menu>
+  </effect>
+  <script><command location="inx" interpreter="python">blend_tool_pro.py</command></script>
+</inkscape-extension>

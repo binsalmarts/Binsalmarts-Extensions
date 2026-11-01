@@ -1,0 +1,7 @@
+/* Studio Dark Compact 2.2. MacTahoe base, soft rectangles and subtle spacing.
+ * The upstream GTK theme supplies complete widget and interaction states.
+ * See vendor/mactahoe/COPYING and ../../../THIRD_PARTY.md.
+ */
+@import url("vendor/mactahoe/gtk.css");
+@import url("palette.css");
+@import url("compact.css");

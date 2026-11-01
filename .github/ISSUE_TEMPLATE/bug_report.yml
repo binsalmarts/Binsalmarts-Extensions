@@ -1,0 +1,27 @@
+name: Bug report / بلاغ مشكلة
+description: Report an extension or theme problem.
+title: "[Bug] "
+body:
+  - type: input
+    id: extension
+    attributes:
+      label: Extension and version / الإضافة وإصدارها
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Inkscape version and OS / إصدار إنكسكيب والنظام
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps, expected behavior and actual result / الخطوات والنتيجة
+    validations:
+      required: true
+  - type: textarea
+    id: sample
+    attributes:
+      label: Error message and sample SVG / رسالة الخطأ ومثال
+      description: Attach a small SVG or screenshot with private artwork removed.

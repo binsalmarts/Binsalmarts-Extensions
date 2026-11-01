@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Logo Export Pro</name>
+  <id>com.binsalmarts.logo-export-pro</id>
+  <param name="tab" type="notebook">
+    <page name="source" gui-text="Source">
+      <label appearance="header">Logo Export Pro · 2.0</label>
+      <param name="source_action" type="optiongroup" appearance="combo" gui-text="Action">
+        <option value="export">Export logo kit</option>
+        <option value="kit_clear">Clear selected template roles</option>
+        <option value="kit_keep">Keep selection colors unchanged</option>
+        <option value="kit_frame">Mark rectangle as Canvas guide</option>
+        <option value="kit_bg">Mark selection as Background</option>
+        <option value="kit_text">Mark selection as Name / text artwork</option>
+        <option value="kit_icon">Mark selection as Icon</option>
+        <option value="kit_template">Mark selection as export template</option>
+        <option value="assign_horizontal">Assign selected group as Horizontal</option>
+        <option value="assign_vertical">Assign selected group as Vertical</option>
+        <option value="assign_icon">Assign selected object as icon</option>
+        <option value="assign_wordmark">Assign selected object as name</option>
+        <option value="clear_roles">Clear all logo role assignments</option>
+      </param>
+      <param name="source_mode" type="optiongroup" appearance="combo" gui-text="Logo source">
+        <option value="templates">Named templates · preserve my designs and generate identity colors</option>
+        <option value="ready">Ready variants · detect selected designs and extract parts once</option>
+        <option value="complete">Complete logo · use current selection as designed</option>
+        <option value="paired">Icon + name · build layouts from assigned objects</option>
+        <option value="icon">Icon only · one selected object or group</option>
+        <option value="wordmark">Name only · one selected object or group</option>
+      </param>
+      <param name="brand_name" type="string" gui-text="Brand / folder name" gui-description="Only used for folder and filenames. Your name artwork stays unchanged.">My Brand</param>
+      <label>Named templates: group each finished design and name it -ex-horizontal-bg, etc.</label>
+      <label>Use Templates and Identity for named designs. Other modes use Layouts / Sizing / Colors.</label>
+      <label>Artwork roles work with paths, groups, live text and embedded images.</label>
+      <separator/>
+      <label appearance="header">Icon + name mode</label>
+      <param name="role_assignment" type="optiongroup" appearance="combo" gui-text="Choose object roles">
+        <option value="assigned">Use my assigned objects / Object IDs</option>
+        <option value="icon_first">First (back) object is icon</option>
+        <option value="icon_last">Last (front) object is icon</option>
+      </param>
+      <hbox>
+        <param name="icon_id" type="string" gui-text="Icon ID" gui-description="Optional override: copy the object's ID from Object Properties. Otherwise uses the icon assigned with Action."/>
+        <spacer size="12"/>
+        <param name="wordmark_id" type="string" gui-text="Name ID" gui-description="Optional override: copy the object's ID from Object Properties. The name may be paths, a group, text or an image."/>
+      </hbox>
+      <label>Assign each object separately with Action, then choose Export logo kit.</label>
+      <label>Roles are chosen by you. First / last means back to front in stacking order.</label>
+      <param name="text_to_paths" type="bool" gui-text="Convert exported text to paths" gui-description="Preserves fonts and Arabic shaping. Source text stays editable.">true</param>
+    </page>
+    <page name="templates" gui-text="Templates">
+      <label appearance="header">Your finished designs</label>
+      <param name="template_scope" type="optiongroup" appearance="combo" gui-text="Export scope">
+        <option value="selection">Named groups inside my selection</option>
+        <option value="document">All named groups in the document</option>
+      </param>
+      <hbox>
+        <param name="template_prefix" type="string" gui-text="Group prefix">-ex-</param>
+        <spacer size="12"/>
+        <param name="template_name" type="string" gui-text="Name for Mark action">horizontal-bg</param>
+      </hbox>
+      <label>Examples: -ex-icon-bg, -ex-horizontal-safe, -ex-vertical-tight.</label>
+      <label>Any extra design is supported: -ex-stamp-bg, -ex-footer-safe, etc.</label>
+      <separator/>
+      <label appearance="header">Inside each export group</label>
+      <label>-icon-  : icon artwork, including paths or an image.</label>
+      <label>-text-  : name artwork; it does not have to be live text.</label>
+      <label>-bg-    : your background shape or group.</label>
+      <label>-frame- : one rectangle defining the canvas; never exported.</label>
+      <label>-keep-  : keep this artwork's colors unchanged.</label>
+      <label>Use Object Properties labels, or mark selected parts with Source → Action.</label>
+      <separator/>
+      <param name="template_original" type="bool" gui-text="Also export each original design unchanged">true</param>
+      <label>Without a frame, the background or artwork bounds define the canvas.</label>
+      <label>For safe area, include a -frame- rectangle with the margins you designed.</label>
+      <label>Positions, scale, spacing and off-center placement are preserved.</label>
+    </page>
+    <page name="identity" gui-text="Identity">
+      <label appearance="header">Brand colors · named template mode</label>
+      <param name="identity_palette" type="string" gui-text="Palette" gui-description="Semicolon-separated names and HEX colors. Example: Navy=#0f1b34; Blue=#397ce0. Up to 16 colors.">Navy=#0f1b34; Blue=#397ce0; Paper=#f0f4f7; Mint=#cbe6e2</param>
+      <param name="identity_backgrounds" type="string" gui-text="Background palette" gui-description="Leave blank to use all identity colors as backgrounds. Otherwise enter a separate palette with the same syntax."/>
+      <param name="identity_bw" type="bool" gui-text="Include black and white in identity palette">true</param>
+      <separator/>
+      <label appearance="header">Generate color recipes</label>
+      <param name="identity_uniform" type="bool" gui-text="Icon and name in the same identity color">true</param>
+      <param name="identity_mixed" type="bool" gui-text="Colored icon + black / white name">true</param>
+      <hbox>
+        <param name="minimum_contrast" type="float" min="1" max="21" precision="2" gui-text="Minimum contrast">3</param>
+        <spacer size="12"/>
+        <param name="neutral_text" type="optiongroup" appearance="combo" gui-text="Neutral name">
+          <option value="best">Best contrast on each background</option>
+          <option value="both">Both black / white when they qualify</option>
+        </param>
+      </hbox>
+      <label>Backgrounds use your -bg- shapes. Transparent templates stay transparent.</label>
+      <label>Low-contrast foreground/background pairs are skipped.</label>
+      <label>Unmarked artwork uses the icon color. Mark the name to enable mixed colors.</label>
+      <label>Named templates ignore the legacy layout, padding and Colors settings.</label>
+    </page>
+    <page name="layout" gui-text="Layouts">
+      <label appearance="header">Layouts to export</label>
+      <param name="layout_as_designed" type="bool" gui-text="As designed · exact current sizes and arrangement" gui-description="Uses the current objects at every export. Includes their actual relative positions, scale and spacing; no saved layout template is reused.">true</param>
+      <hbox>
+        <param name="layout_horizontal" type="bool" gui-text="Horizontal">true</param>
+        <spacer size="16"/>
+        <param name="layout_vertical" type="bool" gui-text="Vertical">true</param>
+      </hbox>
+      <hbox>
+        <param name="layout_icon" type="bool" gui-text="Icon only">true</param>
+        <spacer size="16"/>
+        <param name="layout_wordmark" type="bool" gui-text="Name only">true</param>
+      </hbox>
+      <separator/>
+      <param name="icon_side" type="optiongroup" appearance="combo" gui-text="Horizontal icon">
+        <option value="left">Left of name</option>
+        <option value="right">Right of name</option>
+      </param>
+      <param name="square_icon" type="bool" gui-text="Square icon-only canvas">true</param>
+      <label>Complete logo mode exports only your current arrangement.</label>
+      <label>Ready variants exports each detected type once, preserving its current design.</label>
+      <label>Ready variants ignores As designed and rebuild size/gap controls.</label>
+      <label>Single Icon / Name modes export that component once; no second object is needed.</label>
+    </page>
+    <page name="sizing" gui-text="Sizing">
+      <param name="sizing_mode" type="optiongroup" appearance="combo" gui-text="Component sizes">
+        <option value="original">Keep actual object sizes</option>
+        <option value="balanced">Auto balance icon to name</option>
+        <option value="manual">Use manual heights below</option>
+      </param>
+      <hbox>
+        <vbox>
+          <label appearance="header">Manual heights (px)</label>
+          <param name="icon_height" type="float" min="1" max="2000" precision="2" gui-text="Icon height">128</param>
+          <param name="wordmark_height" type="float" min="1" max="2000" precision="2" gui-text="Name height">48</param>
+        </vbox>
+        <spacer size="16"/>
+        <vbox>
+          <label appearance="header">Auto balance ratios</label>
+          <param name="horizontal_balance" type="float" min="0.1" max="10" precision="2" gui-text="Horizontal" gui-description="Icon height / name height. 1.5 makes the icon 1.5 times the visible name height.">1.5</param>
+          <param name="vertical_balance" type="float" min="0.1" max="10" precision="2" gui-text="Vertical" gui-description="Icon width / name width. 0.5 makes the icon half the visible name width.">0.5</param>
+        </vbox>
+      </hbox>
+      <separator/>
+      <param name="gap_mode" type="optiongroup" appearance="combo" gui-text="Spacing when rebuilding">
+        <option value="current">Use current distance between object bounds</option>
+        <option value="manual">Use manual gap below</option>
+      </param>
+      <hbox>
+        <param name="gap" type="float" min="0" max="10000" precision="2" gui-text="Manual gap (px)">32</param>
+        <spacer size="16"/>
+        <param name="padding" type="float" min="0" max="10000" precision="2" gui-text="Outer padding (px)">32</param>
+      </hbox>
+      <label>These size and gap controls affect rebuilt layouts and component exports.</label>
+      <label>As designed always keeps your current sizes, positions and spacing.</label>
+    </page>
+    <page name="colors" gui-text="Colors">
+      <label appearance="header">Color versions</label>
+      <hbox>
+        <param name="color_original" type="bool" gui-text="Original colors">true</param>
+        <spacer size="16"/>
+        <param name="color_black" type="bool" gui-text="Black">true</param>
+        <spacer size="16"/>
+        <param name="color_white" type="bool" gui-text="White">true</param>
+      </hbox>
+      <param name="preserve_white_cutouts" type="bool" gui-text="White details become cutouts" gui-description="In mixed-color components, pure white shapes become transparent holes in black/white versions. All-white components remain visible. Turn off if white is intended foreground.">true</param>
+      <separator/>
+      <param name="transparent_background" type="bool" gui-text="Transparent export background" gui-description="Applies to SVG, PNG and PDF. JPG and EPS use a solid background to keep all color versions visible.">true</param>
+      <hbox>
+        <param name="background_color" type="color" appearance="colorbutton" gui-text="Light background">0xffffffff</param>
+        <spacer size="16"/>
+        <param name="white_background_color" type="color" appearance="colorbutton" gui-text="White version background">0x172033ff</param>
+      </hbox>
+      <label>JPG / EPS use the light background for Original/Black, and the dark background for White.</label>
+      <label>EPS uses a solid background. Inkscape may flatten masks and filters.</label>
+    </page>
+    <page name="export" gui-text="Export">
+      <param name="output_dir" type="path" mode="folder" gui-text="Output folder" gui-description="A new brand-logo-kit folder is created here. Existing exports are kept."/>
+      <label appearance="header">Formats</label>
+      <hbox>
+        <param name="format_svg" type="bool" gui-text="SVG">true</param>
+        <spacer size="12"/>
+        <param name="format_pdf" type="bool" gui-text="PDF">true</param>
+        <spacer size="12"/>
+        <param name="format_eps" type="bool" gui-text="EPS">true</param>
+      </hbox>
+      <hbox>
+        <param name="format_png" type="bool" gui-text="PNG">true</param>
+        <spacer size="12"/>
+        <param name="format_jpg" type="bool" gui-text="JPG">true</param>
+        <spacer size="12"/>
+        <param name="format_webp" type="bool" gui-text="WEBP · templates">false</param>
+      </hbox>
+      <param name="raster_sizes" type="string" gui-text="Raster sizes (px)" gui-description="Comma-separated longest-edge sizes. Aspect ratio is preserved. Example: 512, 1024, 2048. Up to 8 sizes, from 16 to 8192 px.">512, 1024, 2048</param>
+      <param name="jpeg_quality" type="int" min="1" max="100" gui-text="JPEG quality">95</param>
+      <separator/>
+      <param name="include_preview" type="bool" gui-text="Include offline HTML gallery">true</param>
+      <param name="open_folder" type="bool" gui-text="Open output folder when finished">true</param>
+      <label>Apply exports the kit. The source document stays unchanged.</label>
+    </page>
+  </param>
+  <effect needs-live-preview="false">
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Binsalmarts Extensions &gt;"/>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">logo_export_pro.py</command>
+  </script>
+</inkscape-extension>

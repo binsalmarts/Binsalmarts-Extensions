@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="1000" height="600" viewBox="0 0 1000 600"><sodipodi:namedview xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" pagecolor="#ffffff" inkscape:pageopacity="1"/>
+ <rect width="1000" height="600" fill="#f4f6fa"/>
+ <text x="70" y="70" style="font-family:sans-serif;font-size:28px;fill:#17243d">Vector Effects Pro — editable source</text>
+ <text x="70" y="108" style="font-family:sans-serif;font-size:15px;fill:#68748c">Select the purple motif. Extensions → Binsalmarts Extensions → Vector Effects Pro.</text>
+ <g id="design" transform="translate(500,310) scale(2)">
+  <path id="motif" d="M-95,-33 H95 V33 H-95 Z M-55,-15 H-35 V15 H-55 Z M-10,-15 H10 V15 H-10 Z M35,-15 H55 V15 H35 Z" fill="#635bff" fill-rule="evenodd"/>
+ </g>
+ <text x="70" y="540" style="font-family:sans-serif;font-size:14px;fill:#68748c">Original ID: design. Group paths first to warp a logo or word as one object.</text>
+</svg>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Vector Effects Pro · باقة المؤثرات</name>
+  <id>com.binsalmarts.vector-effects-pro</id>
+  <param name="tab" type="notebook">
+    <page name="geometry" gui-text="Shape · الشكل">
+      <label appearance="header">Vector Effects Pro · 1.2</label>
+      <label>Select vector shapes or a group. The original is preserved inside the generated effect group.</label>
+      <param name="geometry" type="optiongroup" appearance="combo" gui-text="Shape effect · تأثير الشكل">
+        <option value="roughen">Roughen · تخشين الحواف</option>
+        <option value="zigzag">Zig Zag · حواف متعرجة أو متموجة</option>
+        <option value="pucker_bloat">Pucker &amp; Bloat · تقليص ونفخ العقد</option>
+        <option value="arc">Warp: Arc · تقويس دائري</option>
+        <option value="bulge">Warp: Bulge · انتفاخ الشكل</option>
+        <option value="wave">Warp: Wave · تمويج الشكل</option>
+        <option value="none">None · مؤثرات المظهر فقط</option>
+      </param>
+      <hbox>
+        <param name="size" type="float" min="0" max="1000" precision="2" gui-text="Size / amplitude · السعة">6</param>
+        <param name="size_mode" type="optiongroup" appearance="combo" gui-text="Size unit">
+          <option value="px">SVG px</option>
+          <option value="percent">Percent of object size (%)</option>
+        </param>
+      </hbox>
+      <label>Size controls Roughen, Zig Zag and Wave. Relative size uses the larger geometric object dimension.</label>
+      <hbox>
+        <param name="detail" type="float" min="0.1" max="1000" precision="1" gui-text="Roughen detail / 100 px">12</param>
+        <param name="seed" type="int" min="0" max="2147483647" gui-text="Random seed · البذرة">1</param>
+      </hbox>
+      <param name="zigzag_cycles" type="int" min="1" max="2000" gui-text="Zig Zag cycles per subpath">12</param>
+      <param name="points" type="optiongroup" appearance="combo" gui-text="Roughen / Zig Zag points">
+        <option value="corner">Corner · حادة</option><option value="smooth">Smooth · ناعمة</option>
+      </param>
+      <param name="preserve_endpoints" type="bool" gui-text="Keep open-path endpoints fixed · تثبيت نهايتي المنحنى">true</param>
+      <separator/>
+      <param name="amount" type="float" min="-100" max="100" precision="1" gui-text="Pucker / Bloat / Arc / Bulge amount (%)">30</param>
+      <label>Pucker &amp; Bloat: negative = pointed / pinched; positive = rounded / inflated. Zero preserves the source geometry.</label>
+      <param name="axis" type="optiongroup" appearance="combo" gui-text="Warp axis · محور الانحناء">
+        <option value="horizontal">Horizontal · أفقي</option><option value="vertical">Vertical · رأسي</option>
+      </param>
+      <hbox>
+        <param name="wave_cycles" type="int" min="1" max="100" gui-text="Wave cycles · عدد الموجات">1</param>
+        <param name="wave_phase" type="float" min="-360" max="360" precision="1" gui-text="Wave phase (°) · المرحلة">0</param>
+      </hbox>
+      <label>To warp a whole logo or word as one object, group its paths before applying.</label>
+    </page>
+    <page name="shadow" gui-text="Shadow · الظل">
+      <param name="shadow" type="bool" gui-text="Enable shadow · تفعيل الظل">false</param>
+      <param name="shadow_mode" type="optiongroup" appearance="combo" gui-text="Shadow type · نوع الظل">
+        <option value="outer">Drop shadow · ظل خارجي</option><option value="inner">Inner shadow · ظل داخلي</option>
+      </param>
+      <param name="shadow_color" type="color" appearance="colorbutton" gui-text="Shadow color · لون الظل">255</param>
+      <param name="shadow_opacity" type="float" min="0" max="1" precision="2" gui-text="Shadow opacity · العتامة">0.35</param>
+      <hbox>
+        <param name="shadow_dx" type="float" min="-10000" max="10000" precision="2" gui-text="Horizontal offset (px)">8</param>
+        <param name="shadow_dy" type="float" min="-10000" max="10000" precision="2" gui-text="Vertical offset (px)">8</param>
+      </hbox>
+      <param name="shadow_blur" type="float" min="0" max="500" precision="2" gui-text="Shadow softness / sigma (px) · التمويه">4</param>
+      <param name="shadow_spread" type="float" min="0" max="500" precision="2" gui-text="Shadow spread (px) · التمدد">0</param>
+      <label>Positive offsets move the shadow right/down. Blur is SVG Gaussian sigma, not a bitmap export.</label>
+    </page>
+    <page name="appearance" gui-text="Glow &amp; Edges · التوهج والحواف">
+      <param name="glow" type="bool" gui-text="Enable glow · تفعيل التوهج">false</param>
+      <param name="glow_mode" type="optiongroup" appearance="combo" gui-text="Glow type · نوع التوهج">
+        <option value="outer">Outer glow · توهج خارجي</option><option value="inner">Inner glow · توهج داخلي</option>
+      </param>
+      <param name="glow_color" type="color" appearance="colorbutton" gui-text="Glow color · اللون">1333657599</param>
+      <param name="glow_opacity" type="float" min="0" max="1" precision="2" gui-text="Glow opacity · العتامة">0.65</param>
+      <hbox>
+        <param name="glow_blur" type="float" min="0" max="500" precision="2" gui-text="Glow softness / sigma (px)">6</param>
+        <param name="glow_spread" type="float" min="0" max="500" precision="2" gui-text="Glow spread (px)">2</param>
+      </hbox>
+      <separator/>
+      <param name="outline" type="bool" gui-text="Enable edge outline · تفعيل الإطار">false</param>
+      <param name="outline_position" type="optiongroup" appearance="combo" gui-text="Edge position · موضع الحافة">
+        <option value="outer">Outside · خارجي</option><option value="inner">Inside · داخلي</option><option value="center">Centered · في المنتصف</option>
+      </param>
+      <param name="outline_color" type="color" appearance="colorbutton" gui-text="Outline color · لون الحافة">607472639</param>
+      <hbox>
+        <param name="outline_width" type="float" min="0" max="500" precision="2" gui-text="Outline width (px) · العرض">2</param>
+        <param name="outline_opacity" type="float" min="0" max="1" precision="2" gui-text="Outline opacity · العتامة">1</param>
+      </hbox>
+      <label>Shadow, glow and outline work independently and can be combined with any shape effect.</label>
+      <label>Appearance uses editable standard SVG filter primitives. Edge outlines are appearance effects, not new offset paths.</label>
+    </page>
+    <page name="grain" gui-text="Grain · الحبيبات">
+      <param name="grain" type="bool" gui-text="Enable Grain · تفعيل الحبيبات">false</param>
+      <param name="grain_type" type="optiongroup" appearance="combo" gui-text="Grain type · نوع الحبيبات">
+        <option value="regular">Regular · اعتيادي</option><option value="soft">Soft · ناعم</option>
+        <option value="sprinkles">Sprinkles · رشّات خفيفة</option><option value="clumped">Clumped · متكتل</option>
+        <option value="contrasty">Contrasty · عالي التباين</option><option value="enlarged">Enlarged · كبير</option>
+        <option value="stippled">Stippled · تنقيط</option><option value="horizontal">Horizontal · أفقي</option>
+        <option value="vertical">Vertical · رأسي</option><option value="speckle">Speckle · بقع دقيقة</option>
+      </param>
+      <param name="grain_intensity" type="float" min="0" max="100" precision="1" gui-text="Intensity (%) · القوة">45</param>
+      <param name="grain_contrast" type="float" min="0" max="100" precision="1" gui-text="Contrast (%) · التباين">50</param>
+      <param name="grain_size" type="float" min="0.2" max="100" precision="2" gui-text="Grain size (px) · حجم الحبيبات">1.5</param>
+      <param name="grain_seed" type="int" min="0" max="2147483647" gui-text="Grain seed · البذرة العشوائية">1</param>
+      <param name="grain_blend" type="optiongroup" appearance="combo" gui-text="Grain blending · مزج الحبيبات">
+        <option value="soft-light">Soft light · إضاءة ناعمة</option><option value="normal">Normal · عادي</option>
+        <option value="multiply">Multiply · تغميق</option><option value="screen">Screen · تفتيح</option>
+        <option value="overlay">Overlay · تراكب</option>
+      </param>
+      <param name="grain_monochrome" type="bool" gui-text="Monochrome grain · حبيبات أحادية اللون">true</param>
+      <label>For grain only, choose Shape=None. Source gradients are supported for appearance-only effects.</label>
+      <label>Soft light preserves surface color. For pure white or black, try Normal, Multiply or Screen.</label>
+      <label>Grain is a procedural SVG texture clipped to source alpha. Presets approximate grain styles; they are not Adobe's algorithms.</label>
+    </page>
+    <page name="noise" gui-text="Noise · النويز">
+      <param name="noise" type="bool" gui-text="Enable Noise · تفعيل النويز">false</param>
+      <param name="noise_type" type="optiongroup" appearance="combo" gui-text="Noise type · نوع النويز">
+        <option value="additive">Additive · تشويش فاتح وداكن</option>
+        <option value="speckle">Speckle · تشويش مضاعف</option>
+        <option value="salt_pepper">Salt &amp; Pepper · نقط فاتحة وداكنة</option>
+      </param>
+      <param name="noise_amount" type="float" min="0" max="100" precision="1" gui-text="Noise amount (%) · قوة النويز">35</param>
+      <param name="noise_size" type="float" min="0.2" max="100" precision="2" gui-text="Noise size (px) · حجم النويز">1</param>
+      <param name="noise_density" type="float" min="0" max="100" precision="1" gui-text="Salt &amp; Pepper density · انتشار النقط">35</param>
+      <param name="noise_seed" type="int" min="0" max="2147483647" gui-text="Noise seed · البذرة العشوائية">1</param>
+      <param name="noise_monochrome" type="bool" gui-text="Monochrome noise · نويز أحادي اللون">true</param>
+      <label>Disable Monochrome for colored noise. Density controls Salt &amp; Pepper only; it is a relative threshold, not an exact pixel percentage.</label>
+      <label>Choose Shape=None for noise alone or for gradients. Noise can be combined with Grain, shadows, glow and outlines.</label>
+      <label>Amount=0 preserves the source. Additive can lighten black and darken white; Speckle leaves pure black unchanged.</label>
+      <label>Procedural SVG noise preserves transparency and holes. It is not a bitmap or an exact Gaussian noise model.</label>
+    </page>
+    <page name="output" gui-text="Output · التنظيم">
+      <param name="tolerance" type="float" min="0.05" max="5" precision="2" gui-text="Curve approximation tolerance (px)">0.2</param>
+      <param name="group_name" type="string" gui-text="Effect group name">Vector Effects Pro · مؤثرات متجهية</param>
+      <label>Use Live preview below. Apply once when ready. Each selected object receives its own effect group.</label>
+      <label>Manage Effects → Edit original: temporarily shows the preserved original. Select the whole effect group and Refresh afterward.</label>
+      <label>Refresh uses saved parameters. Open this main dialog on an effect group to change its parameters.</label>
+      <label>Remove effect restores the original, including live shapes. Save as Inkscape SVG for future updates.</label>
+      <label>Convert text to paths and unlink clones first. Gradients require Shape=None; images, masks, existing filters and CSS transforms are unsupported.</label>
+      <label>Shape effects create editable paths. Appearance filters stay editable in Filter Editor. This is not Illustrator's live effect engine.</label>
+    </page>
+  </param>
+  <effect needs-live-preview="true">
+    <object-type>all</object-type>
+    <effects-menu><submenu name="Binsalmarts Extensions &gt;"><submenu name="Vector Effects Pro"/></submenu></effects-menu>
+  </effect>
+  <script><command location="inx" interpreter="python">vector_effects_pro.py</command></script>
+</inkscape-extension>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Artboard Maker Pro</name>
+  <id>com.binsalmarts.artboard-maker-pro</id>
+  <param name="tab" type="notebook">
+    <page name="layout" gui-text="Layout">
+      <label appearance="header">Artboard Maker Pro · 1.0</label>
+      <hbox>
+        <vbox>
+          <label appearance="header">Grid</label>
+          <param name="rows" type="int" min="1" max="100" gui-text="Rows">2</param>
+          <param name="columns" type="int" min="1" max="100" gui-text="Columns">3</param>
+          <param name="order" type="optiongroup" appearance="combo" gui-text="Fill order">
+            <option value="rows">Across rows</option>
+            <option value="columns">Down columns</option>
+          </param>
+        </vbox>
+        <spacer size="16"/>
+        <vbox>
+          <label appearance="header">Spacing (px)</label>
+          <param name="gap_x" type="float" min="0" max="100000" precision="2" gui-text="Horizontal gap">40</param>
+          <param name="gap_y" type="float" min="0" max="100000" precision="2" gui-text="Vertical gap">40</param>
+          <param name="cell_alignment" type="optiongroup" appearance="combo" gui-text="Within each cell">
+            <option value="start">Top left</option>
+            <option value="center">Center</option>
+            <option value="end">Bottom right</option>
+          </param>
+        </vbox>
+      </hbox>
+      <label>Count = Rows × Columns. Maximum: 1,000 pages including existing pages.</label>
+      <label>Mixed sizes: tracks fit the largest page in each column and row.</label>
+    </page>
+    <page name="sizes" gui-text="Sizes">
+      <param name="size_mode" type="optiongroup" appearance="combo" gui-text="Size mode">
+        <option value="uniform">One size for every artboard</option>
+        <option value="mixed">Different sizes from a list</option>
+      </param>
+      <hbox>
+        <vbox>
+          <label appearance="header">Uniform size</label>
+          <param name="preset" type="optiongroup" appearance="combo" gui-text="Preset">
+            <option value="custom">Custom</option>
+            <option value="a3">A3 · 297 × 420 mm</option>
+            <option value="a4">A4 · 210 × 297 mm</option>
+            <option value="a5">A5 · 148 × 210 mm</option>
+            <option value="letter">Letter · 8.5 × 11 in</option>
+            <option value="tabloid">Tabloid · 11 × 17 in</option>
+            <option value="square">Square · 1080 × 1080 px</option>
+            <option value="story">Story · 1080 × 1920 px</option>
+            <option value="full_hd">Full HD · 1920 × 1080 px</option>
+            <option value="web">Web · 1440 × 900 px</option>
+            <option value="business_card">Business card · 85 × 55 mm</option>
+          </param>
+          <param name="width" type="float" min="0.01" max="100000" precision="2" gui-text="Custom width">1080</param>
+          <param name="height" type="float" min="0.01" max="100000" precision="2" gui-text="Custom height">1080</param>
+        </vbox>
+        <spacer size="16"/>
+        <vbox>
+          <label appearance="header">Units and orientation</label>
+          <param name="unit" type="optiongroup" appearance="combo" gui-text="Custom / list unit" gui-description="Applies to custom dimensions and list entries without a unit. Presets retain their defined sizes. Spacing always uses px.">
+            <option value="px">Pixels (px)</option>
+            <option value="mm">Millimeters (mm)</option>
+            <option value="cm">Centimeters (cm)</option>
+            <option value="in">Inches (in)</option>
+          </param>
+          <param name="swap_dimensions" type="bool" gui-text="Swap width and height">false</param>
+        </vbox>
+      </hbox>
+      <separator/>
+      <param name="mixed_sizes" type="string" gui-text="Mixed size list" gui-description="Separate sizes with semicolons. Examples: 1080x1080; 1080x1920; 1920x1080 or A4; A5; 210x297mm. The list repeats to fill the grid.">1080x1080; 1080x1920; 1920x1080</param>
+      <label>The size list repeats in fill order. Each artboard is a native Inkscape page.</label>
+    </page>
+    <page name="document" gui-text="Document">
+      <param name="action" type="optiongroup" appearance="combo" gui-text="Page action">
+        <option value="update">Create / update the last generated grid</option>
+        <option value="append">Add a new grid; keep existing pages</option>
+        <option value="replace_all">Replace all page definitions; keep artwork</option>
+      </param>
+      <label>Update keeps page IDs when possible. On a new document, its page becomes the first artboard.</label>
+      <param name="position" type="optiongroup" appearance="combo" gui-text="Grid position">
+        <option value="auto">Automatic · Reuse grid position or place beside existing pages</option>
+        <option value="custom">Custom starting position</option>
+      </param>
+      <hbox>
+        <param name="origin_x" type="float" min="-1000000" max="1000000" precision="2" gui-text="Start X (px)">0</param>
+        <spacer size="16"/>
+        <param name="origin_y" type="float" min="-1000000" max="1000000" precision="2" gui-text="Start Y (px)">0</param>
+      </hbox>
+      <param name="label_prefix" type="string" gui-text="Artboard name prefix">Artboard</param>
+      <label>Layout changes page boundaries. Artwork stays in place.</label>
+    </page>
+  </param>
+  <effect needs-live-preview="true">
+    <object-type>all</object-type>
+    <effects-menu><submenu name="Binsalmarts Extensions &gt;"/></effects-menu>
+  </effect>
+  <script><command location="inx" interpreter="python">artboard_maker_pro.py</command></script>
+</inkscape-extension>

@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+
+# Local environments, credentials and generated packages
+.venv/
+.env
+.env.*
+!.env.example
+dist/
+diagnostics/
+*.log
+
+# Reproducible exports and local tutorial build products
+examples/logo_export/*-logo-kit/
+examples/logo_identity/
+tutorials/*/output/
+tutorials/*/screens/
+tutorials/**/*.zip
+studio_dark/qa/preview-compact-v2.png
+studio_dark/qa/preview-wheel-v2.png
+studio_dark/qa/preview-balanced-v21.png
+studio_dark/qa/preview-wheel-v21.png
+studio_dark/qa/preview-soft-v22.png
+studio_dark/qa/preview-controls-before-v23.png

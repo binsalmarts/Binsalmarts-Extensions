@@ -1,0 +1,147 @@
+{
+  "version": "2.3",
+  "base": {
+    "name": "MacTahoe-Dark-solid",
+    "sha256": "0d87824b00eb2a930b2e0f316bdc9debac373ca7b6e5c1d64aa0c1da77892537",
+    "source": "User supplied local installed theme",
+    "upstream": "https://github.com/vinceliuice/MacTahoe-gtk-theme",
+    "local_adaptations": {
+      "omitted_unrelated_rules": [
+        {
+          "selector": ".nautilus-window.background.csd placessidebar.sidebar row.sidebar-row:hover",
+          "missing_references": [
+            "assets/sidebar-view-hover-200px-dark.png",
+            "assets/sidebar-view-hover-200px-dark@2.png"
+          ]
+        },
+        {
+          "selector": ".nautilus-window.background.csd placessidebar.sidebar row.sidebar-row:active, .nautilus-window.background.csd placessidebar.sidebar row.sidebar-row:active:hover",
+          "missing_references": [
+            "assets/sidebar-view-active-200px-dark.png",
+            "assets/sidebar-view-active-200px-dark@2.png"
+          ]
+        },
+        {
+          "selector": ".nautilus-window.background.csd placessidebar.sidebar row.sidebar-row:selected.has-open-popup, .nautilus-window.background.csd placessidebar.sidebar row.sidebar-row:selected, .nautilus-window.background.csd placessidebar.sidebar row.sidebar-row:selected:hover",
+          "missing_references": [
+            "assets/sidebar-view-checked-200px-dark.png",
+            "assets/sidebar-view-checked-200px-dark@2.png"
+          ]
+        },
+        {
+          "selector": ".content-view.document-page",
+          "missing_references": [
+            "assets/thumbnail-frame.png"
+          ]
+        }
+      ],
+      "reason": "The supplied theme references seven absent images in Nautilus and GNOME Photos cosmetic rules. Omitted those four app-specific rules; all GTK widget and Inkscape rules retained."
+    }
+  },
+  "density_reference": {
+    "name": "Mojave-Dark-solid-alt",
+    "sha256": "d2d9082b47c08d91b36a18495a62a901a3f3aa1e1884f1e5c40a8189b92df3da",
+    "resource_sha256": "7aa39f211636eb3d014e49bdf23923c8198ccab5e401bbcc1cd4860a83715862",
+    "source": "User supplied local installed theme; extracted Gio resources for read-only comparison",
+    "upstream": "https://github.com/vinceliuice/Mojave-gtk-theme"
+  },
+  "metrics": {
+    "button_mojave": {
+      "min_height": 24,
+      "min_width": 16,
+      "padding": "0 6"
+    },
+    "button_mactahoe": {
+      "min_height": 24,
+      "min_width": 24,
+      "padding": "2 6"
+    },
+    "spin_step_mactahoe": {
+      "min_width": 24,
+      "padding": "0 3"
+    },
+    "notebook_mactahoe": {
+      "header_margin": 3,
+      "header_padding": 2,
+      "tab_min_width": 24,
+      "tab_min_height": 24
+    },
+    "strategy": "Preserve MacTahoe widget states and native heights; use soft rectangular tabs and very small toolbar/scrollbar reductions. Only Inkscape-specific adjustments load at application priority."
+  },
+  "revision_2_1": {
+    "changes": [
+      "Removed application-priority ruler colour override",
+      "Restored native MacTahoe heights, padding, widget state colours and tab shapes",
+      "Set tools column width to 32 logical pixels",
+      "Only spin step and paint-type horizontal requests reduced"
+    ],
+    "native_check": {
+      "inkscape": "1.4.4",
+      "expanded_wheel_dock_logical_px": 320,
+      "window_logical_px": [
+        1400,
+        820
+      ]
+    },
+    "css_sources_unchanged": true
+  },
+  "revision_2_2": {
+    "base_colour_substitutions": {
+      "#242424": "#202020",
+      "#333333": "#2d2d2d"
+    },
+    "corners_px": 4,
+    "toolbar_margin_px": 3,
+    "toolbar_icon_padding_px": 2,
+    "scroll_thumb_thickness_px": 8,
+    "canvas_corner_button_min_px": 20,
+    "vendored_gtk_css_sha256": "c985998801eab2f4eeec19b027ae789551c72715cfc9683106ac98b5b501409d",
+    "source_directories_modified": false,
+    "native_screenshot": "preview-soft-v22.png",
+    "native_check": {
+      "inkscape": "1.4.4",
+      "blur_percent": 25.7,
+      "opacity_percent": 75,
+      "scrollbars_temporarily_enabled_then_restored": true
+    }
+  },
+  "revision_2_3": {
+    "request": "Narrow right command toolbar and center snap, visibility and lock icons",
+    "selectors": [
+      "#commands-toolbar.vertical > button",
+      "#SnapToolbar .inkscape-toolbar > button",
+      "#LayerSelector > button.toggle"
+    ],
+    "icon_content_min_px": 16,
+    "icon_button_padding_px": 6,
+    "icon_button_outer_px": 28,
+    "vertical_commands_margin_px": [
+      3,
+      2
+    ],
+    "source_reason": "Snap image uses halign=start; AlternateIcons packs its images at the start. Reduce the content minimum to match the 16 px image instead of compensating with an offset.",
+    "source_urls": [
+      "https://gitlab.com/inkscape/inkscape/-/blob/INKSCAPE_1_4_4/src/ui/toolbar/command-toolbar.cpp",
+      "https://gitlab.com/inkscape/inkscape/-/blob/INKSCAPE_1_4_4/share/ui/toolbar-snap.ui",
+      "https://gitlab.com/inkscape/inkscape/-/blob/INKSCAPE_1_4_4/src/ui/widget/layer-selector.cpp"
+    ],
+    "native_check": {
+      "inkscape": "1.4.4",
+      "screenshot_retina_px": [
+        2940,
+        1848
+      ],
+      "screenshots": [
+        "preview-controls-v23.png",
+        "preview-controls-normal-v23.png"
+      ],
+      "visibility_and_lock_states_checked": true,
+      "prior_qa_layer_states_restored": true,
+      "before_capture_runtime_theme": "Mojave-Dark-solid-alt, as confirmed after quit; not treated as a Studio 2.2 measurement",
+      "gtk_css_parse": "PASS",
+      "installer_recovery_tests": 9
+    },
+    "ruler_and_panel_geometry_rules_changed": false,
+    "user_supplied_source_theme_directories_modified": false
+  }
+}

@@ -1,0 +1,10 @@
+name: Feature request / اقتراح ميزة
+description: Suggest an improvement.
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like to do? / ماذا تريد أن تنجز؟
+      description: Describe the extension, your workflow and a useful example.
+    validations:
+      required: true

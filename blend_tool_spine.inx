@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Set Blend Spine · تعيين مسار المزج</name>
+  <id>com.binsalmarts.blend-tool-pro.spine</id>
+  <param name="action" type="string" gui-hidden="true">set_spine</param>
+  <label>Select exactly one open curve and Apply. The curve is saved as the spine reference for this document.</label>
+  <label>Then select two shapes → Blend Tool Pro → Spine → Follow a curved spine. The original guide is unchanged.</label>
+  <effect needs-live-preview="false">
+    <object-type>all</object-type>
+    <effects-menu><submenu name="Binsalmarts Extensions &gt;"><submenu name="Blend Tool Pro"/></submenu></effects-menu>
+  </effect>
+  <script><command location="inx" interpreter="python">blend_tool_pro.py</command></script>
+</inkscape-extension>

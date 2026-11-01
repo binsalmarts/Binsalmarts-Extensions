@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Blend Tool Pro · مزج الأشكال</name>
+  <id>com.binsalmarts.blend-tool-pro</id>
+  <param name="tab" type="notebook">
+    <page name="blend" gui-text="Blend · المزج">
+      <label appearance="header">Blend Tool Pro · 1.1</label>
+      <label>Select two or more shapes/groups. Preview, then Apply. Original objects remain unchanged.</label>
+      <param name="spacing" type="optiongroup" appearance="combo" gui-text="Spacing · توزيع الخطوات">
+        <option value="steps">Specified steps · عدد محدد</option>
+        <option value="distance">Maximum center spacing · مسافة بين المراكز</option>
+        <option value="smooth">Smooth / automatic · مزج ناعم تلقائي</option>
+      </param>
+      <hbox>
+        <param name="steps" type="int" min="1" max="1000" gui-text="Intermediate steps per stage">12</param>
+        <param name="distance" type="float" min="0.1" max="100000" precision="2" gui-text="Maximum distance (px)">20</param>
+      </hbox>
+      <param name="smooth_spacing" type="float" min="0.1" max="100000" precision="2" gui-text="Smooth mode: geometry spacing (px)">2</param>
+      <param name="order" type="optiongroup" appearance="combo" gui-text="Object order · ترتيب العناصر">
+        <option value="stack">Bottom to top in Layers panel</option>
+        <option value="left_right">Left to right</option>
+        <option value="top_bottom">Top to bottom</option>
+      </param>
+      <param name="source_ids" type="string" gui-text="Ordered source IDs (optional)" gui-description="Comma-separated Object IDs override selection order. Example: circle1, star1, rect1."/>
+      <param name="shape_mode" type="optiongroup" appearance="combo" gui-text="Shape transition · تحوّل الشكل">
+        <option value="morph">Morph shape and size · مزج الشكل والحجم</option>
+        <option value="scale">Scale first shape · تغيير حجم الشكل الأول</option>
+        <option value="copy">Copy first shape · تكرار الشكل الأول</option>
+      </param>
+      <hbox>
+        <param name="blend_fill" type="bool" gui-text="Blend fill colors · لون التعبئة">true</param>
+        <param name="blend_stroke" type="bool" gui-text="Blend stroke color/width · الحدود">true</param>
+        <param name="blend_opacity" type="bool" gui-text="Blend opacity · الشفافية">true</param>
+      </hbox>
+      <param name="color_space" type="optiongroup" appearance="combo" gui-text="Color interpolation">
+        <option value="srgb">sRGB</option><option value="linear_rgb">Linear RGB (lighter transitions)</option>
+      </param>
+      <hbox>
+        <param name="reverse_objects" type="bool" gui-text="Reverse source order · عكس الاتجاه">false</param>
+        <param name="reverse_stack" type="bool" gui-text="Reverse generated stacking · عكس التراكب">false</param>
+      </hbox>
+    </page>
+    <page name="spine" gui-text="Spine · المسار">
+      <param name="follow_spine" type="bool" gui-text="Follow a curved spine · التوزيع على مسار">false</param>
+      <label>Select an open curve → Set Blend Spine. Then select the two source objects and enable this option.</label>
+      <param name="spine_id" type="string" gui-text="Spine Object ID (optional)" gui-description="Leave blank to use the spine saved by Set Blend Spine. A selected spine with this ID is excluded from sources."/>
+      <label>The guide is fitted to connect the source centers. It supplies curvature; the original curve stays unchanged.</label>
+      <param name="orientation" type="optiongroup" appearance="combo" gui-text="Orientation · اتجاه الأشكال">
+        <option value="page">Keep page orientation · اتجاه الصفحة</option>
+        <option value="path">Rotate along path tangent · مماس المسار</option>
+      </param>
+      <hbox>
+        <param name="reverse_spine" type="bool" gui-text="Reverse spine curvature">false</param>
+        <param name="show_spine" type="bool" gui-text="Draw fitted guide in output">false</param>
+      </hbox>
+      <hbox>
+        <param name="spine_start" type="float" min="0" max="100" precision="1" gui-text="Use guide from (%)">0</param>
+        <param name="spine_end" type="float" min="0" max="100" precision="1" gui-text="Use guide to (%)">100</param>
+      </hbox>
+      <param name="extra_turns" type="int" min="-10" max="10" gui-text="Additional full turns">0</param>
+      <label>Curved spines require exactly two sources. Original endpoints stay in place; orientation rotates intermediate shapes.</label>
+    </page>
+    <page name="mapping" gui-text="Mapping · المطابقة">
+      <param name="auto_match" type="bool" gui-text="Match closed-path direction/start node automatically">true</param>
+      <param name="reverse_target" type="bool" gui-text="Reverse target path direction manually">false</param>
+      <param name="target_shift" type="int" min="-2000" max="2000" gui-text="Target start-node shift (closed paths)">0</param>
+      <label>For best results, use similar shape topology. Groups must have the same number of shapes; each pair must have matching subpath counts.</label>
+      <label appearance="header">Independent transition bias</label>
+      <label>1 = uniform. Above 1 delays change toward the end; below 1 moves change toward the start.</label>
+      <param name="position_bias" type="float" min="0.1" max="10" precision="2" gui-text="Position bias · توزيع المواضع">1</param>
+      <param name="shape_bias" type="float" min="0.1" max="10" precision="2" gui-text="Shape bias · تغيّر الشكل">1</param>
+      <param name="color_bias" type="float" min="0.1" max="10" precision="2" gui-text="Color bias · تغيّر اللون">1</param>
+      <label>Distance mode controls maximum center spacing before position bias. It does not measure edge-to-edge gaps.</label>
+    </page>
+    <page name="lighting" gui-text="3D · التجسيم">
+      <param name="shading_mode" type="optiongroup" appearance="combo" gui-text="3D appearance · المظهر المجسّم">
+        <option value="off">Off · المزج العادي</option>
+        <option value="tube">Rounded tube · أنبوب مجسّم متصل</option>
+        <option value="sphere">Rounded beads · كرات وأشكال مستديرة</option>
+      </param>
+      <label>Vector lighting gives a 3D appearance using editable SVG gradients. It does not create a 3D mesh.</label>
+      <param name="shading_strength" type="float" min="0" max="1" precision="2" gui-text="3D strength · قوة التجسيم">0.9</param>
+      <hbox>
+        <param name="light_angle" type="float" min="-360" max="360" precision="1" gui-text="Light direction (°) · اتجاه الضوء">225</param>
+        <param name="light_elevation" type="float" min="0" max="90" precision="1" gui-text="Light elevation (°) · ارتفاع الضوء">50</param>
+      </hbox>
+      <label>Light direction: 0° = right, 90° = down, 225° = upper left. Tube lighting follows the curve tangent.</label>
+      <param name="ambient" type="float" min="0" max="1" precision="2" gui-text="Ambient light · الإضاءة المحيطة">0.22</param>
+      <hbox>
+        <param name="gloss" type="float" min="0" max="1" precision="2" gui-text="Highlight strength · قوة اللمعة">0.5</param>
+        <param name="shininess" type="float" min="1" max="128" precision="1" gui-text="Highlight sharpness · حدّة اللمعة">24</param>
+      </hbox>
+      <param name="shade_stroke" type="bool" gui-text="Shade stroke as well · تجسيم الحدود أيضًا">true</param>
+      <param name="shade_endpoints" type="bool" gui-text="Shade opaque endpoints · تجسيم الطرفين المعتمين">true</param>
+      <label>Opaque endpoints get shaded copies over the untouched originals. Transparent endpoints stay unchanged to preserve alpha.</label>
+      <separator/>
+      <param name="cast_shadow" type="bool" gui-text="Add vector cast shadow · إضافة ظل ساقط">false</param>
+      <hbox>
+        <param name="shadow_distance" type="float" min="0" max="10000" precision="2" gui-text="Shadow distance (px) · إزاحة الظل">12</param>
+        <param name="shadow_opacity" type="float" min="0" max="1" precision="2" gui-text="Shadow opacity · عتامة الظل">0.18</param>
+      </hbox>
+      <label>Shadow points away from the light. It has a crisp vector edge. For a continuous tube, use many overlapping steps.</label>
+    </page>
+    <page name="output" gui-text="Output · الناتج">
+      <param name="group_name" type="string" gui-text="Generated group name">Blend Tool Pro · مزج الأشكال</param>
+      <param name="on_apply" type="optiongroup" appearance="combo" gui-text="On Apply">
+        <option value="replace">Replace blend for the same sources</option>
+        <option value="append">Append a separate blend</option>
+      </param>
+      <label>Enable Live preview below to inspect changes before Apply. Output consists of editable SVG paths.</label>
+      <label>To regenerate after editing originals: select the generated group → Manage Blend → Refresh saved settings.</label>
+      <label>Open this main dialog on a generated group to replace it using current dialog settings.</label>
+      <label>Manage Blend also offers Release (remove intermediate objects) and Expand (detach into ordinary editable paths).</label>
+      <label>Convert live text to paths; unlink clones first. Solid fills/strokes only. Limits: 1,000 generated steps, 10,000 paths.</label>
+    </page>
+  </param>
+  <effect needs-live-preview="true">
+    <object-type>all</object-type>
+    <effects-menu><submenu name="Binsalmarts Extensions &gt;"><submenu name="Blend Tool Pro"/></submenu></effects-menu>
+  </effect>
+  <script><command location="inx" interpreter="python">blend_tool_pro.py</command></script>
+</inkscape-extension>

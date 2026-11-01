@@ -1,0 +1,128 @@
+/* Loaded at application priority, after Inkscape's own style.css.
+ * Preserve native ruler/page/selection colours and vertical sizing.
+ * Preserve vertical spacing; reduce only the width requests that make the
+ * Fill and Stroke panel unnecessarily wide on a 13-inch screen.
+ */
+spinbutton:not(.vertical) > button {
+  min-width: 20px;
+}
+
+#PaintSelector button {
+  min-width: 16px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ColorModeButton {
+  min-width: 0;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+/* Text remains readable without increasing the dock's natural width. */
+#DockedDialogNotebook > header > tabs > tab:not(:checked),
+#DialogNotebook > header > tabs > tab:not(:checked) {
+  color: #b2b2b2;
+}
+
+/* A small reduction: 4 -> 3 px around toolbars and 2 -> 1 px between items. */
+.inkscape-toolbar {
+  margin: 3px;
+}
+.inkscape-toolbar > *,
+.inkscape-toolbar > * > * {
+  margin-right: 1px;
+}
+.inkscape-toolbar > * > *:last-child {
+  margin-right: 0;
+}
+
+/* Ordinary flat tool buttons lose only 1 px of horizontal padding per side. */
+.inkscape-toolbar button.flat:not(.square-button) {
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+/* Keep the existing tool-grid square sizing. */
+.inkscape-toolbar button.square-button {
+  min-width: 24px;
+  min-height: 24px;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+/* The commands bar is vertical in the compact desktop layout. Its icon-only
+ * buttons need symmetric padding, rather than the text-button width above.
+ * Do not change a horizontal commands bar or the toolbar's popover contents.
+ */
+#commands-toolbar.vertical {
+  margin: 3px 2px;
+}
+#commands-toolbar.vertical > button {
+  min-width: 16px;
+  min-height: 16px;
+  padding: 6px;
+  margin: 0;
+  border-radius: 4px;
+}
+#commands-toolbar.vertical > button > image {
+  min-width: 16px;
+  min-height: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Inkscape aligns the snap image to the start of its content box. A 24 px
+ * minimum leaves 8 px of empty space on the right of its 16 px icon. Keep the
+ * 28 px outside square, but make its content match the icon and pad equally.
+ */
+#SnapToolbar .inkscape-toolbar > button {
+  min-width: 16px;
+  min-height: 16px;
+  padding: 6px;
+  margin: 0;
+  border-radius: 4px;
+}
+#SnapToolbar .inkscape-toolbar > button > image {
+  min-width: 16px;
+  min-height: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Eye/lock icons are packed at the start of AlternateIcons, too. Target only
+ * these two toggles; leave the layer-name label and other status fields alone.
+ */
+#LayerSelector > button.toggle {
+  min-width: 16px;
+  min-height: 16px;
+  padding: 6px;
+  margin: 0;
+  border-radius: 4px;
+}
+#LayerSelector > button.toggle > #AlternateIcons,
+#LayerSelector > button.toggle > #AlternateIcons > image {
+  margin: 0;
+  padding: 0;
+}
+
+/* Soft rectangles with straight inner joins; keep the 25 px native scale row. */
+#InkSpinScale trough,
+#InkSpinScale highlight {
+  border-radius: 4px 0 0 4px;
+}
+#InkSpinScale spinbutton {
+  border-radius: 0 4px 4px 0;
+}
+#InkSpinScale spinbutton entry {
+  border-radius: 0;
+}
+#InkSpinScale spinbutton > button:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+/* Canvas corner buttons determine the surrounding scrollbar thickness. */
+#QuickActions, #LockGuides, #CMS_Adjust {
+  min-width: 20px;
+  min-height: 20px;
+}

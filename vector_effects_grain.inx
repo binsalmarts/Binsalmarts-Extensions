@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Grain · الحبيبات</name>
+  <id>com.binsalmarts.vector-effects-pro.grain</id>
+  <param name="geometry" type="string" gui-hidden="true">none</param>
+  <param name="grain" type="bool" gui-hidden="true">true</param>
+  <label appearance="header">Grain · Vector Effects Pro 1.2</label>
+  <param name="grain_type" type="optiongroup" appearance="combo" gui-text="Grain type · نوع الحبيبات">
+    <option value="regular">Regular · اعتيادي</option><option value="soft">Soft · ناعم</option>
+    <option value="sprinkles">Sprinkles · رشّات خفيفة</option><option value="clumped">Clumped · متكتل</option>
+    <option value="contrasty">Contrasty · عالي التباين</option><option value="enlarged">Enlarged · كبير</option>
+    <option value="stippled">Stippled · تنقيط</option><option value="horizontal">Horizontal · أفقي</option>
+    <option value="vertical">Vertical · رأسي</option><option value="speckle">Speckle · بقع دقيقة</option>
+  </param>
+  <param name="grain_intensity" type="float" min="0" max="100" precision="1" gui-text="Intensity (%) · القوة">45</param>
+  <param name="grain_contrast" type="float" min="0" max="100" precision="1" gui-text="Contrast (%) · التباين">50</param>
+  <param name="grain_size" type="float" min="0.2" max="100" precision="2" gui-text="Grain size (px) · حجم الحبيبات">1.5</param>
+  <param name="grain_seed" type="int" min="0" max="2147483647" gui-text="Grain seed · البذرة العشوائية">1</param>
+  <param name="grain_blend" type="optiongroup" appearance="combo" gui-text="Grain blending · مزج الحبيبات">
+    <option value="soft-light">Soft light · إضاءة ناعمة</option><option value="normal">Normal · عادي</option>
+    <option value="multiply">Multiply · تغميق</option><option value="screen">Screen · تفتيح</option>
+    <option value="overlay">Overlay · تراكب</option>
+  </param>
+  <param name="grain_monochrome" type="bool" gui-text="Monochrome grain · حبيبات أحادية اللون">true</param>
+  <label>This shortcut applies Grain only. To combine it with Noise, warps, shadows or glow, use the main Vector Effects Pro dialog.</label>
+  <label>Solid colors and SVG gradients are supported. Convert text to paths and unlink clones first.</label>
+  <effect needs-live-preview="true">
+    <object-type>all</object-type>
+    <effects-menu><submenu name="Binsalmarts Extensions &gt;"><submenu name="Vector Effects Pro"/></submenu></effects-menu>
+  </effect>
+  <script><command location="inx" interpreter="python">vector_effects_pro.py</command></script>
+</inkscape-extension>

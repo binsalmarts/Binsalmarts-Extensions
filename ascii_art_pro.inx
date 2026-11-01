@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>ASCII Art Pro</name>
+  <id>org.inkscape.generate.ascii-art-pro</id>
+  <param name="tab" type="notebook">
+    <page name="general" gui-text="General">
+      <label appearance="header">ASCII Art Pro · 1.2</label>
+      <label>Select one image. The result is editable SVG text.</label>
+      <param name="sequence" type="optiongroup" appearance="combo" gui-text="Character preset">
+        <option value="standard">Standard · @%#*+=-:.</option>
+        <option value="blocks">Blocks · █▓▒░</option>
+        <option value="simple">Simple · #*-.</option>
+        <option value="binary">Binary · 10</option>
+        <option value="dense">Dense · More detail</option>
+        <option value="minimal">Minimal · █</option>
+        <option value="retro">Retro · MWNXK0…</option>
+        <option value="symbols">Symbols · @$#%&amp;+=&lt;&gt;!?*</option>
+        <option value="arabic">Arabic letters</option>
+        <option value="custom">Custom</option>
+      </param>
+      <param name="custom_characters" type="string" gui-text="Custom characters" gui-description="For Custom: enter characters from dark to light. Add a trailing space for empty highlights. Arabic letters and diacritics are supported.">@#%*+=-:. </param>
+      <param name="quality" type="optiongroup" appearance="combo" gui-text="Quality">
+        <option value="manual">Manual · Use column count</option>
+        <option value="low">Low · 40 columns</option>
+        <option value="medium">Medium · 80 columns</option>
+        <option value="high">High · 120 columns</option>
+        <option value="ultra">Ultra · 200 columns</option>
+      </param>
+      <param name="columns" type="int" min="20" max="500" gui-text="Columns" gui-description="Used with Manual quality. More columns give finer detail.">80</param>
+      <param name="font_size" type="float" min="1" max="200" precision="2" gui-text="Font size (px)" gui-description="Used with Fixed font size. Fit to image calculates the size automatically.">12</param>
+      <param name="layout" type="optiongroup" appearance="combo" gui-text="Text layout">
+        <option value="fit">Fit to image · Automatic font size</option>
+        <option value="font">Fixed font size · Clip to image</option>
+      </param>
+      <label>Fit adjusts the grid to the image. Limit: 100,000 cells and 1,000 rows.</label>
+    </page>
+    <page name="typography" gui-text="Typography">
+      <param name="font_family" type="optiongroup" appearance="combo" gui-text="Font family">
+        <option value="monospace">Monospace</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Consolas">Consolas</option>
+        <option value="Liberation Mono">Liberation Mono</option>
+        <option value="DejaVu Sans Mono">DejaVu Sans Mono</option>
+        <option value="Noto Sans Arabic">Noto Sans Arabic</option>
+        <option value="Noto Naskh Arabic">Noto Naskh Arabic</option>
+        <option value="Amiri">Amiri</option>
+        <option value="DejaVu Sans">DejaVu Sans</option>
+        <option value="custom">Custom</option>
+      </param>
+      <param name="custom_font" type="string" gui-text="Custom font name">DejaVu Sans Mono</param>
+      <param name="font_scale" type="float" min="0.1" max="5" precision="2" gui-text="Font scale" gui-description="Multiplies the font size in Fixed mode. Fit calculates the size automatically.">1</param>
+      <param name="character_spacing" type="float" min="-0.4" max="3" precision="2" gui-text="Character spacing (em)" gui-description="Additional horizontal spacing. Each glyph has a fixed grid position.">0</param>
+      <param name="line_height" type="float" min="0.5" max="3" precision="2" gui-text="Line height" gui-description="Vertical spacing relative to font size. Fit adjusts the rows to the image height.">1.2</param>
+      <label>Choose an installed font. For Arabic, use Noto Sans Arabic or Amiri. A fallback is used if unavailable.</label>
+      <label>Arabic glyphs occupy separate cells, with diacritics kept with their letters. Image order is preserved.</label>
+    </page>
+    <page name="effects" gui-text="Effects">
+      <param name="contrast" type="float" min="0" max="5" precision="2" gui-text="Contrast">1</param>
+      <param name="brightness" type="float" min="0" max="5" precision="2" gui-text="Brightness">1</param>
+      <param name="invert" type="bool" gui-text="Invert character ramp" gui-description="Reverses the character order once, preserving source colors.">false</param>
+      <param name="edge_detection" type="bool" gui-text="Edge detection" gui-description="Turns edges into characters and leaves flat areas empty.">false</param>
+      <param name="hybrid" type="bool" gui-text="Hybrid mode" gui-description="Mixes brightness and edges equally. Takes priority when Edge detection is also enabled.">false</param>
+      <label>Adjusts contrast and brightness before averaging cells, preserving original image colors.</label>
+    </page>
+    <page name="colors" gui-text="Colors">
+      <param name="original_colors" type="bool" gui-text="Use original colors">false</param>
+      <param name="ascii_color" type="color" appearance="colorbutton" gui-text="Character color">0x000000ff</param>
+      <param name="background" type="optiongroup" appearance="combo" gui-text="Background">
+        <option value="transparent">Transparent</option>
+        <option value="white">White</option>
+        <option value="black">Black</option>
+        <option value="custom">Custom color</option>
+      </param>
+      <param name="background_color" type="color" appearance="colorbutton" gui-text="Custom background color">0xffffffff</param>
+      <label>Transparent pixels stay empty. Brightness is analyzed over white with a transparent background.</label>
+    </page>
+    <page name="overlay" gui-text="Image overlay">
+      <param name="overlay_original" type="bool" gui-text="Show a copy of the original behind the characters">false</param>
+      <param name="overlay_opacity" type="float" min="0" max="1" precision="2" gui-text="Overlay opacity">0.25</param>
+      <param name="blur_strength" type="float" min="0" max="100" precision="2" gui-text="Blur strength (SVG units)">0</param>
+      <label>The overlay is an embedded copy behind the text. Blur affects this copy only. Opacity: 0 hidden, 1 fully visible.</label>
+    </page>
+    <page name="output" gui-text="Output">
+      <param name="original_action" type="optiongroup" appearance="radio" gui-text="Original image">
+        <option value="preserve">Preserve original · Keep a hidden copy</option>
+        <option value="replace">Replace original · Remove the source image</option>
+      </param>
+      <param name="separate_layers" type="bool" gui-text="Organize in separate layers">true</param>
+      <param name="convert_to_paths" type="bool" gui-text="Convert text to paths">false</param>
+      <label>Text stays editable by default. Paths preserve glyph shapes but cannot be edited as text.</label>
+      <label>The original is hidden to show the ASCII result. Show the Original Image layer to restore it.</label>
+      <label>Supports embedded PNG/JPEG and locally linked raster images. Internet links and SVG images are unsupported.</label>
+    </page>
+  </param>
+  <effect needs-live-preview="true">
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Binsalmarts Extensions &gt;"/>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">ascii_art_pro.py</command>
+  </script>
+</inkscape-extension>

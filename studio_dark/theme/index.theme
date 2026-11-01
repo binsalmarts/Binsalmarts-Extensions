@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Studio Dark Compact 2.3
+Comment=MacTahoe base with soft rectangular tabs, subtle compact spacing and darker surfaces / GTK 3
+
+[X-GNOME-Metatheme]
+GtkTheme=Studio-Dark
+IconTheme=Dash

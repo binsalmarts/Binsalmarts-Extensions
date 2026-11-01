@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Manage Effects · تعديل وإزالة التأثير</name>
+  <id>com.binsalmarts.vector-effects-pro.manage</id>
+  <param name="action" type="optiongroup" appearance="combo" gui-text="Action · الإجراء">
+    <option value="refresh">Refresh saved effect · تحديث التأثير المحفوظ</option>
+    <option value="edit">Edit original · إظهار الأصل لتعديله</option>
+    <option value="release">Remove effect / restore original · إزالة التأثير واسترجاع الأصل</option>
+  </param>
+  <label>Select entire Vector Effects Pro groups. Edit shows their original artwork and hides the generated results.</label>
+  <label>After editing, select the entire effect group and run Refresh. Remove effect restores the original at the same stacking position.</label>
+  <label>لتغيير إعدادات التأثير، اختر مجموعته وافتح Vector Effects Pro بدل أمر التحديث.</label>
+  <effect needs-live-preview="false">
+    <object-type>all</object-type>
+    <effects-menu><submenu name="Binsalmarts Extensions &gt;"><submenu name="Vector Effects Pro"/></submenu></effects-menu>
+  </effect>
+  <script><command location="inx" interpreter="python">vector_effects_pro.py</command></script>
+</inkscape-extension>

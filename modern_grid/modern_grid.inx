@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Modern Grid</name>
+  <id>com.moderndesign.modern-grid</id>
+  <dependency type="executable" location="extensions">modern_grid.py</dependency>
+  <param name="target" type="optiongroup" appearance="combo" gui-text="Apply to" gui-description="Selected objects: fit a grid to the bounding box of each object. All artboards: use every page in the document.">
+    <option value="artboards">All artboards</option>
+    <option value="selection">Selected objects</option>
+  </param>
+  <param name="tab" type="notebook">
+    <page name="column" gui-text="Column Grid">
+      <hbox>
+        <vbox>
+          <label appearance="header">Layout</label>
+          <param name="col_count" type="int" min="1" max="64" gui-text="Count">12</param>
+          <param name="col_type" type="optiongroup" appearance="combo" gui-text="Type">
+            <option value="stretch">Stretch</option>
+            <option value="fixed">Fixed</option>
+            <option value="auto">Auto</option>
+          </param>
+          <param name="col_width" type="float" min="1" max="2000" precision="1" gui-text="Fixed width (px)" gui-description="Used only when Type is Fixed.">60</param>
+          <param name="col_gutter" type="float" min="0" max="500" precision="1" gui-text="Gutter (px)">16</param>
+          <param name="col_align" type="optiongroup" appearance="combo" gui-text="Alignment">
+            <option value="left">Left</option>
+            <option value="center">Center</option>
+            <option value="right">Right</option>
+          </param>
+          <param name="col_offset" type="float" min="-1000" max="1000" precision="1" gui-text="Offset (px)">0</param>
+        </vbox>
+        <spacer size="16"/>
+        <separator/>
+        <spacer size="16"/>
+        <vbox>
+          <label appearance="header">Margins (px)</label>
+          <param name="col_margin_lock" type="bool" gui-text="Link Margins">false</param>
+          <param name="col_margin_all" type="float" min="0" max="1000" precision="1" gui-text="All sides" gui-description="Used when Link Margins is enabled.">20</param>
+          <separator/>
+          <hbox>
+            <param name="col_margin_top" type="float" min="0" max="1000" precision="1" gui-text="Top">20</param>
+            <spacer size="12"/>
+            <param name="col_margin_bottom" type="float" min="0" max="1000" precision="1" gui-text="Bottom">20</param>
+          </hbox>
+          <hbox>
+            <param name="col_margin_left" type="float" min="0" max="1000" precision="1" gui-text="Left">20</param>
+            <spacer size="12"/>
+            <param name="col_margin_right" type="float" min="0" max="1000" precision="1" gui-text="Right">20</param>
+          </hbox>
+        </vbox>
+      </hbox>
+      <separator/>
+      <hbox>
+        <param name="col_color" type="color" gui-text="Color" appearance="colorbutton">4278190335</param>
+        <spacer size="20"/>
+        <param name="col_opacity" type="float" min="0.01" max="1.0" precision="2" gui-text="Opacity">0.10</param>
+      </hbox>
+    </page>
+    <page name="row" gui-text="Row Grid">
+      <hbox>
+        <vbox>
+          <label appearance="header">Layout</label>
+          <param name="row_count" type="int" min="1" max="64" gui-text="Count">8</param>
+          <param name="row_type" type="optiongroup" appearance="combo" gui-text="Type">
+            <option value="stretch">Stretch</option>
+            <option value="fixed">Fixed</option>
+            <option value="auto">Auto</option>
+          </param>
+          <param name="row_height" type="float" min="1" max="2000" precision="1" gui-text="Fixed height (px)" gui-description="Used only when Type is Fixed.">60</param>
+          <param name="row_gutter" type="float" min="0" max="500" precision="1" gui-text="Gutter (px)">16</param>
+          <param name="row_align" type="optiongroup" appearance="combo" gui-text="Alignment">
+            <option value="top">Top</option>
+            <option value="center">Center</option>
+            <option value="bottom">Bottom</option>
+          </param>
+          <param name="row_offset" type="float" min="-1000" max="1000" precision="1" gui-text="Offset (px)">0</param>
+        </vbox>
+        <spacer size="16"/>
+        <separator/>
+        <spacer size="16"/>
+        <vbox>
+          <label appearance="header">Margins (px)</label>
+          <param name="row_margin_lock" type="bool" gui-text="Link Margins">false</param>
+          <param name="row_margin_all" type="float" min="0" max="1000" precision="1" gui-text="All sides" gui-description="Used when Link Margins is enabled.">20</param>
+          <separator/>
+          <hbox>
+            <param name="row_margin_top" type="float" min="0" max="1000" precision="1" gui-text="Top">20</param>
+            <spacer size="12"/>
+            <param name="row_margin_bottom" type="float" min="0" max="1000" precision="1" gui-text="Bottom">20</param>
+          </hbox>
+          <hbox>
+            <param name="row_margin_left" type="float" min="0" max="1000" precision="1" gui-text="Left">20</param>
+            <spacer size="12"/>
+            <param name="row_margin_right" type="float" min="0" max="1000" precision="1" gui-text="Right">20</param>
+          </hbox>
+        </vbox>
+      </hbox>
+      <separator/>
+      <hbox>
+        <param name="row_color" type="color" gui-text="Color" appearance="colorbutton">16711935</param>
+        <spacer size="20"/>
+        <param name="row_opacity" type="float" min="0.01" max="1.0" precision="2" gui-text="Opacity">0.10</param>
+      </hbox>
+    </page>
+    <page name="grid" gui-text="Grid">
+      <hbox>
+        <vbox>
+          <label appearance="header">Layout</label>
+          <param name="grd_columns" type="int" min="1" max="200" gui-text="Columns">9</param>
+          <param name="grd_rows" type="int" min="1" max="200" gui-text="Rows">10</param>
+          <param name="grd_gutter" type="float" min="0" max="200" precision="1" gui-text="Gutter (px)">8</param>
+          <param name="grd_style" type="optiongroup" appearance="combo" gui-text="Style">
+            <option value="fill">Fill</option>
+            <option value="outline">Outline</option>
+          </param>
+          <param name="grd_border" type="bool" gui-text="Show outer border">true</param>
+        </vbox>
+        <spacer size="16"/>
+        <separator/>
+        <spacer size="16"/>
+        <vbox>
+          <label appearance="header">Margins (px)</label>
+          <param name="grd_margin_lock" type="bool" gui-text="Link Margins">false</param>
+          <param name="grd_margin_all" type="float" min="0" max="1000" precision="1" gui-text="All sides" gui-description="Used when Link Margins is enabled.">20</param>
+          <separator/>
+          <hbox>
+            <param name="grd_margin_top" type="float" min="0" max="1000" precision="1" gui-text="Top">20</param>
+            <spacer size="12"/>
+            <param name="grd_margin_bottom" type="float" min="0" max="1000" precision="1" gui-text="Bottom">20</param>
+          </hbox>
+          <hbox>
+            <param name="grd_margin_left" type="float" min="0" max="1000" precision="1" gui-text="Left">20</param>
+            <spacer size="12"/>
+            <param name="grd_margin_right" type="float" min="0" max="1000" precision="1" gui-text="Right">20</param>
+          </hbox>
+        </vbox>
+      </hbox>
+      <separator/>
+      <hbox>
+        <param name="grd_color" type="color" gui-text="Color" appearance="colorbutton">2348810495</param>
+        <spacer size="20"/>
+        <param name="grd_opacity" type="float" min="0.01" max="1.0" precision="2" gui-text="Opacity">0.08</param>
+      </hbox>
+    </page>
+    <page name="bento" gui-text="Bento Grid">
+      <hbox>
+        <vbox>
+          <label appearance="header">Layout</label>
+          <param name="bto_count" type="int" min="2" max="30" gui-text="Boxes">6</param>
+          <param name="bto_seed" type="int" min="1" max="10000" gui-text="Random seed" gui-description="Change this value to shuffle the Bento layout.">1</param>
+          <param name="bto_sync" type="bool" gui-text="Sync layout" gui-description="Use the same layout on every artboard or selected object.">true</param>
+          <param name="bto_gutter" type="float" min="0" max="200" precision="1" gui-text="Gutter (px)">12</param>
+          <param name="bto_rounded" type="float" min="0" max="200" precision="1" gui-text="Corner Radius (px)">8</param>
+        </vbox>
+        <spacer size="16"/>
+        <separator/>
+        <spacer size="16"/>
+        <vbox>
+          <label appearance="header">Margins (px)</label>
+          <param name="bto_margin_lock" type="bool" gui-text="Link Margins">false</param>
+          <param name="bto_margin_all" type="float" min="0" max="1000" precision="1" gui-text="All sides" gui-description="Used when Link Margins is enabled.">20</param>
+          <separator/>
+          <hbox>
+            <param name="bto_margin_top" type="float" min="0" max="1000" precision="1" gui-text="Top">20</param>
+            <spacer size="12"/>
+            <param name="bto_margin_bottom" type="float" min="0" max="1000" precision="1" gui-text="Bottom">20</param>
+          </hbox>
+          <hbox>
+            <param name="bto_margin_left" type="float" min="0" max="1000" precision="1" gui-text="Left">20</param>
+            <spacer size="12"/>
+            <param name="bto_margin_right" type="float" min="0" max="1000" precision="1" gui-text="Right">20</param>
+          </hbox>
+        </vbox>
+      </hbox>
+      <separator/>
+      <hbox>
+        <param name="bto_color" type="color" gui-text="Color" appearance="colorbutton">2863311519</param>
+        <spacer size="20"/>
+        <param name="bto_opacity" type="float" min="0.01" max="1.0" precision="2" gui-text="Opacity">0.15</param>
+      </hbox>
+    </page>
+  </param>
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Binsalmarts Extensions &gt;"/>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="extensions" interpreter="python">modern_grid.py</command>
+  </script>
+</inkscape-extension>

@@ -1,0 +1,62 @@
+name: Publish release
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+    paths: [VERSION, '.github/workflows/release.yml']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing tag to publish (must match VERSION)
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-publish
+  cancel-in-progress: false
+
+jobs:
+  checks:
+    uses: ./.github/workflows/ci.yml
+    with:
+      checkout_ref: ${{ inputs.tag || github.sha }}
+  publish:
+    needs: checks
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.tag || github.sha }}
+          persist-credentials: false
+      - name: Check tag and version
+        env:
+          RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
+        run: |
+          version="v$(cat VERSION)"
+          if [ "$RELEASE_TAG" != main ]; then test "$RELEASE_TAG" = "$version"; fi
+      - name: Build and verify release packages
+        run: |
+          python3 tools/build_release.py
+          python3 tools/validate_repository.py --archives dist/release
+      - name: Publish packages and checksums
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
+        run: |
+          if [ "$RELEASE_TAG" = main ]; then RELEASE_TAG="v$(cat VERSION)"; fi
+          if gh release view "$RELEASE_TAG" > /dev/null 2>&1; then
+            echo "Release $RELEASE_TAG already exists; leaving its assets unchanged."
+            exit 0
+          fi
+          gh release create "$RELEASE_TAG" dist/release/* \
+            --target "$(git rev-parse HEAD)" \
+            --title "Binsalmarts Extensions $RELEASE_TAG" \
+            --notes-file docs/RELEASE_NOTES.md \
+            --latest

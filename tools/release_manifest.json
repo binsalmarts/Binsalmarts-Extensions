@@ -1,0 +1,108 @@
+{
+  "packages": [
+    {
+      "name": "ASCII-Art-Pro",
+      "version": "1.2.0",
+      "files": [
+        "ascii_art_pro.py",
+        "ascii_art_pro.inx"
+      ],
+      "readme": "ASCII_ART_README.md",
+      "examples": [
+        "examples/*.svg",
+        "examples/source.png"
+      ]
+    },
+    {
+      "name": "Page-Numbering-Pro",
+      "version": "1.2.0",
+      "files": [
+        "page_numbering_pro.py",
+        "page_numbering_pro.inx"
+      ],
+      "readme": "PAGE_NUMBERING_README.md",
+      "examples": [
+        "examples/page_numbering/*.svg"
+      ]
+    },
+    {
+      "name": "Modern-Grid",
+      "version": "4.4.0",
+      "files": [
+        "modern_grid/modern_grid.py",
+        "modern_grid/modern_grid.inx"
+      ],
+      "readme": "modern_grid/README.md",
+      "examples": [
+        "examples/modern_grid/*.svg"
+      ]
+    },
+    {
+      "name": "Artboard-Maker-Pro",
+      "version": "1.0.0",
+      "files": [
+        "artboard_maker_pro.py",
+        "artboard_maker_pro.inx"
+      ],
+      "readme": "ARTBOARD_MAKER_README.md",
+      "examples": [
+        "examples/artboard_maker/*.svg"
+      ]
+    },
+    {
+      "name": "Logo-Export-Pro",
+      "version": "2.0.0",
+      "files": [
+        "logo_export_pro.py",
+        "logo_export_kit.py",
+        "logo_export_pro.inx"
+      ],
+      "readme": "LOGO_EXPORT_README.md",
+      "examples": [
+        "examples/logo_export/*.svg"
+      ]
+    },
+    {
+      "name": "Logo-Construction",
+      "version": "1.0.0",
+      "files": [
+        "logo_construction.py",
+        "logo_construction.inx",
+        "logo_construction_reference.inx"
+      ],
+      "readme": "LOGO_CONSTRUCTION_README.md",
+      "examples": [
+        "examples/logo_construction/*.svg"
+      ]
+    },
+    {
+      "name": "Blend-Tool-Pro",
+      "version": "1.1.0",
+      "files": [
+        "blend_tool_pro.py",
+        "blend_tool_pro.inx",
+        "blend_tool_manage.inx",
+        "blend_tool_spine.inx"
+      ],
+      "readme": "BLEND_TOOL_README.md",
+      "examples": [
+        "examples/blend_tool/*.svg"
+      ]
+    },
+    {
+      "name": "Vector-Effects-Pro",
+      "version": "1.2.0",
+      "files": [
+        "vector_effects_pro.py",
+        "vector_effects_pro.inx",
+        "vector_effects_manage.inx",
+        "vector_effects_grain.inx",
+        "vector_effects_noise.inx"
+      ],
+      "readme": "VECTOR_EFFECTS_README.md",
+      "examples": [
+        "examples/vector_effects/*.svg"
+      ]
+    }
+  ]
+}
