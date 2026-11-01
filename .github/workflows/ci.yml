@@ -27,7 +27,7 @@ jobs:
         run: |
           sudo add-apt-repository -y ppa:inkscape.dev/stable
           sudo apt-get update
-          sudo apt-get install -y inkscape python3-pil python3-pypdf python3-lxml python3-numpy python3-scipy python3-cssselect python3-serial python3-packaging fonts-dejavu fonts-noto-core ghostscript xvfb
+          sudo apt-get install -y inkscape python3-pil python3-pypdf python3-lxml python3-numpy python3-scipy python3-cssselect python3-serial python3-packaging fonts-dejavu fonts-noto-core ghostscript xvfb yaru-theme-icon adwaita-icon-theme
           inkscape --version
       - name: Validate repository
         run: /usr/bin/python3 tools/validate_repository.py
