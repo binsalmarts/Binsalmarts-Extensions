@@ -64,6 +64,35 @@ class ArtboardTests(unittest.TestCase):
         self.assertEqual([p.get("inkscape:label") for p in pages(extension)],
                          ["Artboard " + str(i) for i in range(1, 7)])
 
+    def test_without_names_supports_all_page_actions_and_ignores_the_prefix(self):
+        native = '<inkscape:page id="original" x="0" y="0" width="800" height="600" inkscape:label="Design"/>'
+        for action in ("update", "append", "replace_all"):
+            for prefix in ("", "Unused", "\t"):
+                with self.subTest(action=action, prefix=prefix):
+                    extension = convert(document(pages=native), "--action=" + action,
+                                        "--rows=1", "--columns=2", "--without_names=true",
+                                        "--label_prefix=" + prefix)
+                    generated = [p for p in pages(extension) if p.get(MARKER) == "page"]
+                    self.assertEqual(len(generated), 2)
+                    self.assertTrue(all(p.get("inkscape:label") is None for p in generated))
+                    if action != "replace_all":
+                        self.assertEqual(pages(extension)[0].get("inkscape:label"), "Design")
+
+    def test_names_can_be_removed_and_restored_only_on_the_last_grid(self):
+        first = convert(None, "--rows=1", "--columns=2", "--label_prefix=Keep")
+        retained = [etree.tostring(p) for p in pages(first)]
+        second = convert(serialized(first), "--action=append", "--rows=1", "--columns=2")
+        identifiers = [p.get("id") for p in pages(second)[2:]]
+        unnamed = convert(serialized(second), "--rows=1", "--columns=3", "--without_names=true")
+        self.assertEqual([etree.tostring(p) for p in pages(unnamed)[:2]], retained)
+        self.assertEqual([p.get("id") for p in pages(unnamed)[2:4]], identifiers)
+        self.assertTrue(all(p.get("inkscape:label") is None for p in pages(unnamed)[2:]))
+        restored = convert(serialized(unnamed), "--rows=1", "--columns=2", "--without_names=false",
+                           "--label_prefix=لوحة")
+        self.assertEqual([etree.tostring(p) for p in pages(restored)[:2]], retained)
+        self.assertEqual([p.get("id") for p in pages(restored)[2:]], identifiers)
+        self.assertEqual([p.get("inkscape:label") for p in pages(restored)[2:]], ["لوحة 1", "لوحة 2"])
+
     def test_mixed_sizes_repeat_and_tracks_keep_the_requested_minimum_gaps(self):
         extension = convert(None, "--size_mode=mixed", "--mixed_sizes=100x80; 200x120; 60x50",
                             "--rows=2", "--columns=3", "--gap_x=10", "--gap_y=20")
@@ -191,7 +220,7 @@ class ArtboardTests(unittest.TestCase):
     def test_invalid_options_and_sizes_fail_without_mutation(self):
         for args in (("--rows=0",), ("--columns=101",), ("--rows=100", "--columns=100"),
                      ("--gap_x=-1",), ("--gap_y=nan",), ("--width=0",), ("--height=inf",),
-                     ("--unit=invalid",), ("--position=invalid",), ("--label_prefix=",),
+                     ("--unit=invalid",), ("--position=invalid",), ("--label_prefix=",), ("--label_prefix=Bad\tname",),
                      ("--size_mode=mixed", "--mixed_sizes="), ("--size_mode=mixed", "--mixed_sizes=0x100"),
                      ("--size_mode=mixed", "--mixed_sizes=A0"), ("--size_mode=mixed", "--mixed_sizes=100xNaN"),
                      ("--size_mode=mixed", "--rows=1", "--columns=1", "--mixed_sizes=100x100; 200x200")):

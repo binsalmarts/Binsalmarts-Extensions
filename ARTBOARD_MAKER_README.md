@@ -1,4 +1,4 @@
-# Artboard Maker Pro 1.0
+# Artboard Maker Pro 1.1
 
 Creates **native Inkscape pages**, with uniform or mixed sizes arranged in rows and columns. The English interface is under **Extensions → Binsalmarts Extensions > → Artboard Maker Pro**. Requires Inkscape 1.4 and its bundled Python/Inkex; no additional packages.
 
@@ -8,7 +8,7 @@ Creates **native Inkscape pages**, with uniform or mixed sizes arranged in rows 
 2. In **Sizes**, select **One size for every artboard** or **Different sizes from a list**.
 3. For one size, select a preset or enter custom width and height, with px, mm, cm or inches. Presets include A3/A4/A5, Letter, Tabloid, Square, Story, Full HD, Web and Business card.
 4. For mixed sizes, enter a semicolon-separated list, such as `1080x1080; 1080x1920; 1920x1080`, or `A4; A5; 210x297mm`. The list repeats in the chosen fill order until the grid is full. Each entry needs one grid cell; extra entries produce a validation error.
-5. Choose the page action and starting position in **Document**, then click **Apply**.
+5. Choose the page action and starting position in **Document**. Enable **Without artboard names** to create unnamed pages, then click **Apply**.
 
 **Swap width and height** rotates the dimensions of every requested size. Presets keep their physical sizes, independently of the custom/list unit. Entries can specify their own units; a trailing unit applies to both dimensions, so `210x297mm` means 210 mm × 297 mm. Entries without units use **Custom / list unit**.
 
@@ -26,7 +26,7 @@ Each column uses its widest page; each row uses its tallest page. Gaps separate 
 
 **Automatic** retains the position of a grid being updated. A newly added grid starts beside existing pages, separated by Horizontal gap. **Custom starting position** uses Start X/Y in pixels relative to the document origin. Negative coordinates are supported.
 
-The page names use **Artboard name prefix**, followed by a number. The prefix can include Arabic or other Unicode text.
+By default, page names use **Artboard name prefix**, followed by a number. The prefix can include Arabic or other Unicode text. Enable **Without artboard names** in **Document** to omit custom page names; the prefix is then ignored and can be empty. Updating a generated grid with this option removes its existing names while preserving page IDs. Other retained pages keep their names. Disable the option to name the grid again. Inkscape may still display its own page numbers for unnamed pages.
 
 Changing page boundaries does not move or resize artwork. On a new canvas, the root viewport is resized to the first generated page while preserving the existing SVG scale and viewBox origin. Imported SVGs with unequal X/Y scales require `preserveAspectRatio="none"` to resize without changing their artwork; validation rejects incompatible resize operations before changing the document. SVGs using a nonuniform canvas with letterboxing can still receive appended pages.
 
@@ -34,9 +34,9 @@ Rerun Modern Grid or Page Numbering Pro after changing page count or dimensions 
 
 ## Installation
 
-Extract `dist/Artboard-Maker-Pro-1.0.0.zip`. Copy its extension folder into **Edit → Preferences → System → User extensions**. Keep `artboard_maker_pro.py` and `artboard_maker_pro.inx` together, and install only one copy. Restart Inkscape.
+Extract `dist/Artboard-Maker-Pro-1.1.0.zip`. Copy its extension folder into **Edit → Preferences → System → User extensions**. Keep `artboard_maker_pro.py` and `artboard_maker_pro.inx` together, and install only one copy. Restart Inkscape.
 
-The updated combined package is `dist/Binsalmarts-Extensions-with-Artboard-Maker-2026-10-07.zip`.
+The combined suite can be rebuilt from the current sources with `python3 tools/build_release.py`.
 
 ## Validation and examples
 

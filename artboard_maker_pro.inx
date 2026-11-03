@@ -4,7 +4,7 @@
   <id>com.binsalmarts.artboard-maker-pro</id>
   <param name="tab" type="notebook">
     <page name="layout" gui-text="Layout">
-      <label appearance="header">Artboard Maker Pro · 1.0</label>
+      <label appearance="header">Artboard Maker Pro · 1.1</label>
       <hbox>
         <vbox>
           <label appearance="header">Grid</label>
@@ -86,6 +86,7 @@
         <spacer size="16"/>
         <param name="origin_y" type="float" min="-1000000" max="1000000" precision="2" gui-text="Start Y (px)">0</param>
       </hbox>
+      <param name="without_names" type="bool" gui-text="Without artboard names" gui-description="Create pages without custom names, or remove names from the grid being updated. The name prefix is ignored when enabled.">false</param>
       <param name="label_prefix" type="string" gui-text="Artboard name prefix">Artboard</param>
       <label>Layout changes page boundaries. Artwork stays in place.</label>
     </page>

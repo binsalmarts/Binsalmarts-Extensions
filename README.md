@@ -17,7 +17,7 @@ Nine Inkscape extensions for layout, logos and editable vector artwork, with SVG
 | ASCII Art Pro | 1.2.0 | تحويل الصور إلى أحرف ونصوص قابلة للتحرير، مع دعم الأحرف العربية | [الدليل](ASCII_ART_README.md) | [ملون](examples/color.svg) |
 | Page Numbering Pro | 1.2.0 | ترقيم الصفحات، أرقام عربية وأصفار بادئة وقوالب مخصصة | [الدليل](PAGE_NUMBERING_README.md) | [ترقيم عربي](examples/page_numbering/arabic_leading_zeros.svg) |
 | Modern Grid | 4.4.0 | شبكات أعمدة وصفوف ووحدات وBento للصفحات أو العناصر | [الدليل](modern_grid/README.md) | [شبكة وحدات](examples/modern_grid/grid.svg) |
-| Artboard Maker Pro | 1.0.0 | إنشاء صفحات Inkscape أصلية بمقاسات موحدة أو مختلطة | [الدليل](ARTBOARD_MAKER_README.md) | [مقاسات مختلطة](examples/artboard_maker/mixed.svg) |
+| Artboard Maker Pro | 1.1.0 | إنشاء صفحات Inkscape أصلية بمقاسات موحدة أو مختلطة، مع خيار بدون أسماء | [الدليل](ARTBOARD_MAKER_README.md) | [مقاسات مختلطة](examples/artboard_maker/mixed.svg) |
 | Logo Export Pro | 2.0.0 | تصدير الشعارات وقوالب الهوية إلى صيغ وألوان متعددة | [الدليل](LOGO_EXPORT_README.md) | [قوالب الهوية](examples/logo_export/named-templates.svg) |
 | Logo Construction | 1.0.0 | مخطط بناء الشعار، القياسات والمراجع الهندسية | [الدليل](LOGO_CONSTRUCTION_README.md) | [المخطط](examples/logo_construction/construction-demo.svg) |
 | Blend Tool Pro | 1.1.0 | مزج الأشكال والألوان على خط أو منحنى مع مظهر ثلاثي الأبعاد | [الدليل](BLEND_TOOL_README.md) | [مزج 3D](examples/blend_tool/blend-3d-demo.svg) |
@@ -45,7 +45,7 @@ Nine Inkscape extensions for layout, logos and editable vector artwork, with SVG
 
 ## التثبيت السريع
 
-1. نزّل **Binsalmarts-Extensions-1.1.1.zip** من [Releases](https://github.com/binsalmarts/Binsalmarts-Extensions/releases/latest) وفك الضغط.
+1. نزّل **Binsalmarts-Extensions-1.2.0.zip** من [Releases](https://github.com/binsalmarts/Binsalmarts-Extensions/releases/latest) وفك الضغط.
 2. افتح **Preferences → System → User extensions** داخل Inkscape.
 3. انسخ **مجلدات الإضافات التسعة** إلى المسار الظاهر، مع إبقاء ملفات `.py` و`.inx` معًا.
 4. أعد تشغيل Inkscape، ثم افتح **Extensions → Binsalmarts Extensions >**.

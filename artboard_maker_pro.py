@@ -7,7 +7,7 @@ import uuid
 
 import inkex
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 MARKER = "data-artboard-maker-pro"
 BATCH = "data-artboard-maker-batch"
 ACTIVE_BATCH = "data-artboard-maker-active-batch"
@@ -113,6 +113,7 @@ class ArtboardMakerPro(inkex.EffectExtension):
         pars.add_argument("--position", default="auto")
         pars.add_argument("--origin_x", type=float, default=0)
         pars.add_argument("--origin_y", type=float, default=0)
+        pars.add_argument("--without_names", type=inkex.Boolean, default=False)
         pars.add_argument("--label_prefix", default="Artboard")
 
     def validate_options(self):
@@ -137,7 +138,7 @@ class ArtboardMakerPro(inkex.EffectExtension):
         ):
             if value not in allowed:
                 raise inkex.AbortExtension(f"Unknown {label}.")
-        if not o.label_prefix.strip() or any(ord(c) < 32 for c in o.label_prefix):
+        if not o.without_names and (not o.label_prefix.strip() or any(ord(c) < 32 for c in o.label_prefix)):
             raise inkex.AbortExtension("Enter a nonempty artboard name prefix without control characters.")
         if o.size_mode == "mixed":
             sizes = parse_sizes(o.mixed_sizes, o.unit)
@@ -231,8 +232,9 @@ class ArtboardMakerPro(inkex.EffectExtension):
                 identifier = self.svg.get_unique_id("artboard", blacklist=reserved_ids)
                 reserved_ids.add(identifier)
                 attributes["id"] = identifier
-            attributes.update({MARKER: "page", BATCH: batch, "data-artboard-maker-version": VERSION,
-                               inkex.addNS("label", "inkscape"): f"{o.label_prefix.strip()} {index + 1}"})
+            attributes.update({MARKER: "page", BATCH: batch, "data-artboard-maker-version": VERSION})
+            if not o.without_names:
+                attributes[inkex.addNS("label", "inkscape")] = f"{o.label_prefix.strip()} {index + 1}"
             planned.append((page, attributes))
         # Commit only after validating every option, page, dimension and root size.
         if namedview is None:
@@ -248,6 +250,8 @@ class ArtboardMakerPro(inkex.EffectExtension):
             if page not in previous[:len(rectangles)]:
                 namedview.remove(page)
         for page, attributes in planned:
+            if o.without_names:
+                page.attrib.pop(inkex.addNS("label", "inkscape"), None)
             for key, value in attributes.items():
                 page.set(key, value)
             if page.getparent() is None:
